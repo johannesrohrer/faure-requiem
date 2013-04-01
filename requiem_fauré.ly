@@ -80,6 +80,7 @@ taglineText = \markup {
   outer-margin = 20\mm
   inner-margin = 10\mm
   binding-offset = 2\mm
+  indent = 7\mm
   markup-system-spacing #'padding = #2  % default 0.5
   score-markup-spacing #'padding = #5   % default 0.5
   system-system-spacing #'padding = #3  % default 1
@@ -134,6 +135,8 @@ taglineText = \markup {
     \Staff
     \RemoveEmptyStaves
     \override VerticalAxisGroup #'remove-first = ##t
+    \override InstrumentName #'self-alignment-X = #RIGHT
+    \override InstrumentName #'padding = #1  % default 0.3
   }
 }
 
