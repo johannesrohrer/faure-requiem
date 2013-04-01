@@ -142,25 +142,28 @@ taglineText = \markup {
 
 commentedDynamic =
 #(define-music-function
-  (parser location commentA dynamictext commentB)
-  (string? string? string?)
+  (parser location commentA dynamictext commentB htranslate)
+  (string? string? string? number?)
   (make-dynamic-script
    #{
      \markup {
-       \normal-text { \italic $commentA }
-       \dynamic { $dynamictext }
-       \normal-text { \italic $commentB }
+       \null
+       \translate #(cons htranslate 0) {
+         \normal-text { \italic $commentA }
+         \dynamic { $dynamictext }
+         \normal-text { \italic $commentB }
+       }
      }
    #}))
 
-menop = \commentedDynamic "meno" "p" ""
-fsempre = \commentedDynamic "" "f" "sempre"
-ffsempre = \commentedDynamic "" "ff" "sempre"
-ppsempre = \commentedDynamic "" "pp" "sempre"
-ppsostenuto = \commentedDynamic "" "pp" "sostenuto"
-semprepp = \commentedDynamic "sempre" "pp" ""
-semprep = \commentedDynamic "sempre" "p" ""
-sempref = \commentedDynamic "sempre" "f" ""
+menop = \commentedDynamic "meno" "p" "" #-13.8
+fsempre = \commentedDynamic "" "f" "sempre" #7.2
+ffsempre = \commentedDynamic "" "ff" "sempre" #7.3
+ppsempre = \commentedDynamic "" "pp" "sempre" #7.5
+ppsostenuto = \commentedDynamic "" "pp" "sostenuto" #9.0
+semprepp = \commentedDynamic "sempre" "pp" "" #-19.0
+semprep = \commentedDynamic "sempre" "p" "" #-17.0
+sempref = \commentedDynamic "sempre" "f" "" #-16.5
 
 crescmolto =
 %% TODO: "molto" should appear at around half the spanner length
