@@ -141,7 +141,7 @@ IntroitEtKyrieSopranos =  \relative a' {
   R1
   a4\(^\ppsostenuto a a4. a8
   a2 a\)
-  r2^\semprepp a4\( a
+  r2 a4^\tweak #'extra-offset #'(-2 . -2) \semprepp\( a
 
   %% [1] p. 2 "eis domine et lux perpetua"
   a4 a c4. c8
@@ -152,7 +152,7 @@ IntroitEtKyrieSopranos =  \relative a' {
 
   %% [1] p. 3 "luceat / luceat"
   r4 d es es~
-  es8 r r4 r bes^\dim  % [1] has additional hairpin after "dim."
+  es8 r r4 r bes^\>  % [1] has both "dim." and hairpin
   c4 c~ c8^\p r r4
   R1 |
 
@@ -198,9 +198,9 @@ IntroitEtKyrieSopranos =  \relative a' {
   a4. a8 a2\)
 
   %% [1] p. 15 "omnis caro veniet"
-  r4  bes2^\dim f4
+  r4  bes2^\> f4                % [1]: textual "dim" instead of hairpin
   a2.^\p^\> a4\breathe
-  a2.^\p a4 |
+  a2.^\pp a4 |                  % [1]: \p again
   %% G
   a4 r r2
 
@@ -213,7 +213,7 @@ IntroitEtKyrieSopranos =  \relative a' {
   %% [1] p. 17 "leison / Kyrie eleison / eleison / e-"
   c4. c8 a2\)\breathe |
   %% H
-  f4^\cresc a d f
+  f4^\< a d f                   % [1]: textual "cresc" inst. of hairpin
   c4.^\f c8 c4\breathe bes
   a4.^\> a8 a4 d
 
@@ -256,7 +256,7 @@ IntroitEtKyrieAltos =  \relative f' {
   R1
   f4^\pp\( f f4. f8
   f2 f\)
-  r2 a4\( a
+  r2 a4^\tag #'aix -\tweak #'extra-offset #'(-2 . -1) -\semprepp\( a
 
   %% [1] p. 2 "eis domine et lux perpetua"
   a4 a a4. a8
@@ -267,7 +267,7 @@ IntroitEtKyrieAltos =  \relative f' {
 
   %% [1] p. 3 "luceat / luceat"
   r4 bes bes bes~
-  bes8 r r4 r g^\dim
+  bes8 r r4 r g^\>   % [1] uses textual "dim." only
   a4 a~ a8^\tag #'aix -\p r r4
   R1 |
 
@@ -289,27 +289,27 @@ IntroitEtKyrieAltos =  \relative f' {
 
   %% [1] p. 13 "exaudi / exaudi orationem meam"
   %% F
-  c'=''4 c2 a4\breathe
-  f4 f2 a4
-  c4 c8 c c4 a
-  f2 f
+  c'=''4^\tag #'aix -\ff c2 a4^\tag #'aix -\>\breathe
+  f4^\tag #'aix -\p f2 a4
+  c4^\tag #'aix -\ff c8 c c4 a^\tag #'aix -\>
+  f2^\tag #'aix -\p f
 
   %% [1] p. 14 "ad te omnis caro veniet"
-  r4 cis'=''2( a4)
+  r4 cis'=''2^\tag #'aix -\ffsempre ( a4)
   eis4\breathe eis2 eis4
   f2. f4
   f4. f8 f2
 
   %% [1] p. 15 "omnis caro veniet"
-  r4 f2 f4
-  f2. c4\breathe
-  cis2. cis4 |
+  r4 f2^\tag #'aix -\> f4
+  f2.^\tag #'aix -\p^\tag #'aix -\p c4\breathe
+  cis2.^\tag #'aix -\pp cis4 |
   %% G
   d4 r r2
 
   %% [1] p. 16 "Kyrie / Kyrie / Kyrie e-"
   R1
-  d'=''4.\( d8 a2
+  d'=''4.\(^\tag #'aix -\dolceespressivo d8 a2
   c4. c8 a2\) \breathe
   d4.\( d8 a4 a
 
@@ -322,33 +322,33 @@ IntroitEtKyrieAltos =  \relative f' {
 
   %% [1] p. 18 "leison / Christe / Christe / Christe e-"
   d4 g a2
-  r4 fis2-> fis4
-  g2 g
-  r4 fis4 fis fis
+  r4 fis2->^\tag #'aix -\ff fis4^\tag #'aix -\>
+  g2^\tag #'aix -\p g
+  r4 fis4^\tag #'aix -\ff fis fis^\tag #'aix -\>
 
   %% [1] p. 19 "leison / Christe / Christe / elei-"
-  g4. g8 g2 |
+  g4.^\tag #'aix -\p g8 g2 |
   %% J
-  r4 f2 f4
+  r4 f2^\tag #'aix -\semprep f4
   r4 e2 e4
   r4 c\( c cis
 
   %% [1] p. 20 "son / eleison"
   d2\) r
   R1*2
-  r4 f4\( e e
+  r4 f4\(^\tag #'aix -\pp e e
   d2\) r
 
   %% [1] p. 21 "eleison"
   R1*2 |
   %% K
-  r4 f es es
+  r4 f^\tag #'aix -\pp es es
   d1 ~
 
   %% [1] p. 22 "_ / eleison"
   d2~ d4 r
   R1
-  r4 d d d
+  r4 d^\tag #'aix -\pp d d
   d1~
   d1\fermata
 }
@@ -358,11 +358,18 @@ IntroitEtKyrieTenors =  \relative d' {
   %% [1] p. 1 "Requiem æternam dona"
   R1
   <<
-    { \voiceOne d4^"div"^\pp\( d d4. d8 | d2 d \) }
+    {
+      \voiceOne
+      d4^\tag #'aix -\tweak #'X-offset #-2 \div ^\pp \(
+        d d4. d8 | d2 d \)
+    }
     \context Voice = "tenorsII" { \voiceTwo a4 a a4. a8 | a2 a }
   >> \oneVoice
   r2 <<
-    { \voiceOne e'='4\( e }
+    {
+      \voiceOne
+      e'='4^\tag #'aix -\tweak #'extra-offset #'(-2 . -2.5) -\semprepp\( e
+    }
     \context Voice = "tenorsII" { \voiceTwo c4 c }
   >>
 
@@ -382,13 +389,13 @@ IntroitEtKyrieTenors =  \relative d' {
   r4 <<
     { \voiceOne d4 es es~ | es8 }
     \context Voice = "tenorsII" { \voiceTwo bes4 bes bes~ | bes8 }
-  >> \oneVoice r8 r4 r bes4^\dim
+  >> \oneVoice r8 r4 r bes4^\>   % [1] uses textual "dim." only
   c4 c~ c8^\tag #'aix -\p r r4
   R1 |
 
   %% [1] p. 4 "luceat eis / luceat eis"
   %% B
-  r4 g\( a a
+  r4 g^\tag #'aix -\pp\( a a
   bes2 ces\)
   r4 a4\( a a
   g2( f)
@@ -397,7 +404,9 @@ IntroitEtKyrieTenors =  \relative d' {
 
   %% [1] p. 5 "Requiem æternam"
   R1*2
-  d'='4.^\p^\dolceespressivo\( d8 a4. a8
+  d'='4.^\tweak #'X-offset #-2 ^\tweak #'Y-offset #-3 \p
+        ^\tweak #'X-offset #1 \dolceespressivo \(
+    d8 a4. a8
   c2 a\)
 
   %% [1] p. 6 "dona eis domine et lux perpetua lu-"
@@ -421,39 +430,40 @@ IntroitEtKyrieTenors =  \relative d' {
 
   %% [1] p. 9 "domine et lux perpetua luceat e-"
   e4. d8 c4\) r
-  r4^\sempref c\( c b8( a)
+  r4 c^\sempref \( c b8( a)
   c4. c8 c4 bes4
-  a4^\p^\> a a(\! gis)  % TODO: Dynamics?
+  a4^\> a a( gis)               % [1] indicates \p at the BEGINNING of
+                                % the decrescendo hairpin
 
   %% [1] p. 10-12 "is"
-  a4\) r r2
+  a4\p\) r r2
   %% R1
   %% R1*10 %% E
   R1*11
 
   %% [1] p. 13 "exaudi / exaudi orationem meam"
   %% F
-  <f'=' c>4 <f c>2 <f c>4\breathe
-  d4 d2 <f d>4
-  <f c>4 <f c>8 <f c> <f c>4 <f c>
-  cis2 cis
+  <f'=' c>4^\tag #'aix -\ff <f c>2 <f c>4^\tag #'aix -\>\breathe
+  d4^\tag #'aix -\p d2 <f d>4
+  <f c>4^\tag #'aix -\ff <f c>8 <f c> <f c>4 <f c>^\tag #'aix -\>
+  cis2^\tag #'aix -\p cis
 
   %% [1] p. 14 "ad te omnis caro veniet"
-  r4 <fis=' cis>2.
+  r4 <fis=' cis>2.^\tag #'aix -\ffsempre
   <eis cis>4\breathe cis2 cis4
   des2. des4
   des4. des8 des2
 
   %% [1] p. 15 "omnis caro veniet"
-  r4 des2 des4
-  c2. a4\breathe
-  a2. a4 |
+  r4 des2^\tag #'aix -\> des4
+  c2.^\tag #'aix -\p^\tag #'aix -\> a4\breathe
+  a2.^\tag #'aix -\pp a4 |
   %% G
   f4 r r2
 
   %% [1] p. 16 "Kyrie / Kyrie / Kyrie e-"
   R1
-  d'='4.\( d8 a2
+  d'='4.\(^\tag #'aix -\dolceespressivo d8 a2
   c4. c8 a2\) \breathe
   d4.\( d8 a4 a
 
@@ -466,33 +476,33 @@ IntroitEtKyrieTenors =  \relative d' {
 
   %% [1] p. 18 "leison / Christe / Christe / Christe e-"
   f4 d cis2
-  r4 c2-> c4
-  cis2 cis
-  r4 c c c
+  r4 c2->^\tag #'aix -\ff c4^\tag #'aix -\>
+  cis2^\tag #'aix -\p cis
+  r4 c^\tag #'aix -\ff c c^\tag #'aix -\>
 
   %% [1] p. 19 "leison / Christe / Christe / elei-"
-  cis4. cis8 cis2 |
+  cis4.^\tag #'aix -\p cis8 cis2 |
   %% J
-  r4 bes2 c4
+  r4 bes2^\tag #'aix -\semprep c4
   r4 c2 c4
   r4 a\( a g
 
   %% [1] p. 20 "son / eleison"
   f2\) r
   R1*2
-  r4 f\( e e
+  r4 f\(^\tag #'aix -\pp e e
   d2\) r
 
   %% [1] p. 21 "eleison"
   R1*2 |
   %% K
-  r4 f es es
+  r4 f^\tag #'aix -\pp es es
   d1 ~
 
   %% [1] p. 22 "_ / eleison"
   d2~ d4 r4
   R1
-  r4 d d d
+  r4 d^\tag #'aix -\pp d d
   d1~
   d1\fermata
 }
@@ -502,11 +512,18 @@ IntroitEtKyrieBasses =  \relative f {
   %% [1] p. 1 "Requiem æternam dona"
   R1
   <<
-    { \voiceOne f4^\pp\( f f4. f8 | f2 f\) }
+    {
+      \voiceOne
+      f4^\tag #'aix -\tweak #'X-offset #-2 \div ^\pp \(
+        f f4. f8 | f2 f\)
+    }
     \context Voice = "bassesII" { \voiceTwo d4 d d4. d8 | d2 d }
   >> \oneVoice
   r2 <<
-    { \voiceOne a'=4\( a }
+    {
+      \voiceOne
+      a'=4^\tag #'aix -\tweak #'extra-offset #'(-2 . -3) -\semprepp \( a
+    }
     \context Voice = "bassesII" { \voiceTwo c,=4 c }
   >>
 
@@ -526,13 +543,13 @@ IntroitEtKyrieBasses =  \relative f {
   r4 <<
     { \voiceOne bes=4 bes bes~ | bes8 }
     \context Voice = "tenorsII" { \voiceTwo f4 es es~ | es8 }
-  >> \oneVoice r8 r4 r g4^\dim % [1] has additional hairpin after "dim."
+  >> \oneVoice r8 r4 r g4^\>  % [1] has both "dim." and hairpin
   a4 a~ a8^\p r r4
   R1 |
 
   %% [1] p. 4 "luceat eis / luceat eis"
   %% B
-  r4 es^\pp\( es es
+  r4 es^\tag #'aix -\pp\( es es
   des2 des\)
   r4 c\( c c
   cis2( d)
@@ -548,21 +565,21 @@ IntroitEtKyrieBasses =  \relative f {
 
   %% [1] p. 13 "exaudi / exaudi orationem meam"
   %% F
-  a'=4 a2 a4\breathe
-  a4 a2 a4
-  a4 a8 a a4 a
-  a2 a
+  a'=4^\tag #'aix -\ff a2 a4^\tag #'aix -\>\breathe
+  a4^\tag #'aix -\p a2 a4
+  a4^\tag #'aix -\ff a8 a a4 a^\tag #'aix -\>
+  a2^\tag #'aix -\p a
 
   %% [1] p. 14 "ad te omnis caro veniet"
-  r4 a2.
+  r4 a2.^\tag #'aix -\ffsempre
   a4\breathe a2 a4
   f2. <bes f>4
   <a f>4. <a f>8 <a f>2
 
   %% [1] p. 15 "omnis caro veniet"
-  r4 f2 <bes f>4
-  <a f>2. f4\breathe
-  <f a,>2. <f a,>4 |
+  r4 f2^\tag #'aix -\> <bes f>4
+  <a f>2.^\tag #'aix -\p^\tag #'aix -\> f4\breathe
+  <f a,>2.^\tag #'aix -\pp <f a,>4 |
   %% G
   d4 r4 r2
 
@@ -575,33 +592,33 @@ IntroitEtKyrieBasses =  \relative f {
 
   %% [1] p. 18 "leison / Christe / Christe / Christe e-"
   a4 b a2
-  r4 a2-> a4
-  cis2 cis
-  r4 c c c
+  r4 a2->^\tag #'aix -\ff a4^\tag #'aix -\>
+  a2^\tag #'aix -\p a
+  r4 a^\tag #'aix -\ff a a^\tag #'aix -\>
 
   %% [1] p. 19 "leison / Christe / Christe / elei-"
-  cis4. cis8 cis2 |
+  a4.^\tag #'aix -\p a8 a2 |
   %% J
-  d,=4.( e8) f2
+  d,=4.(^\tag #'aix -\semprep e8) f2
   c4.( d8) e2
   r4 a,\( a a
 
   %% [1] p. 20 "son / eleison"
   d2\) r
   R1*2
-  r4 f4\( e e
+  r4 f4\(^\tag #'aix -\pp e e
   d2\) r
 
   %% [1] p. 21 "eleison"
   R1*2
   %% K
-  r4 f4 es es
+  r4 f4^\tag #'aix -\pp es es
   d1~
 
   %% [1] p. 22 "_ / eleison"
   d2~ d4 r
   R1
-  r4 d d d
+  r4 d^\tag #'aix -\pp d d
   d1~
   d1\fermata
 }

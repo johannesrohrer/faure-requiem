@@ -130,6 +130,9 @@ taglineText = \markup {
     \override DynamicTextSpanner #'style = #'none
     \override BarNumber #'font-size = #2
     \override BarNumber #'self-alignment-X = #CENTER
+    %% displace rehearsal marks over clefs a bit to the right to avoid
+    %% having to evade the bar numbers vertically
+    \override Clef #'break-align-anchor = #3.0
   }
   \context {
     \Staff
@@ -140,6 +143,10 @@ taglineText = \markup {
   }
 }
 
+%% So far, we manually hard-code horizontal offsets to center on the
+%% main dynamic text of the commented mark. It would be more elegant
+%% to calculate them automatically using the mechanisms employed in
+%% <http://lsr.dsi.unimi.it/LSR/Snippet?id=739>.
 commentedDynamic =
 #(define-music-function
   (parser location commentA dynamictext commentB htranslate)
@@ -184,14 +191,15 @@ pococresc =
              'span-text "poco cresc.")
 
 
-dolce = \markup { \italic "dolce" }
-dolcesempre = \markup { \italic "dolce sempre" }
-dolceespressivo = \markup { \italic "dolce espressivo" }
-dolcetranquille = \markup { \italic "dolce tranquille" }
-espress = \markup { \italic "espress." }
-sempre = \markup { \italic "sempre" }
-sempredolce = \markup { \italic "sempre dolce" }
-sostenuto = \markup { \italic "sostenuto" }
+div = -\markup { \right-align "div." }
+dolce = -\markup { \italic "dolce" }
+dolcesempre = -\markup { \italic "dolce sempre" }
+dolceespressivo = -\markup { \italic "dolce espressivo" }
+dolcetranquille = -\markup { \italic "dolce tranquille" }
+espress = -\markup { \italic "espress." }
+sempre = -\markup { \italic "sempre" }
+sempredolce = -\markup { \italic "sempre dolce" }
+sostenuto = -\markup { \italic "sostenuto" }
 
 labelSopranos = "S"
 labelSopranosShort = "S"
