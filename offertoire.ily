@@ -42,7 +42,7 @@ OffertoireGlobal = {
 
   %% [1] p. 41
   \time 4/4
-  \tempo "1° Tempo adagio molto" 4 = 48
+  \tempo "Tempo I: Adagio molto" 4 = 48 % [1]: "1° Tempo adagio molto"
   s1*5
   \mark\default % J , [1] p. 42
   s1*6
@@ -162,7 +162,8 @@ OffertoireBaritoneSolo =  \relative a {
   %% [1] p. 23-31
   %% A-D
   R1*34
-  r2 a4.^\p^\dolce a8
+  r2 a4.^\tag #'aix -\tweak #'extra-offset #'(-2 . -3) -\solo
+        ^\pdolce a8
 
   a2.~
 
@@ -182,7 +183,7 @@ OffertoireBaritoneSolo =  \relative a {
   %% [1] p. 34
   a8 a\( c c b a
   a2 a4\)
-  r4 a^\p^\dolce a
+  r4 a^\pdolce a
   a4. a8 a4~
 
   %% [1] p. 35
@@ -195,12 +196,12 @@ OffertoireBaritoneSolo =  \relative a {
   a2. |
   %% F
   R2.*4
-  r4 e4^\p( a8.) a16
+  r4 e4(^\tweak #'X-offset #-1.5 -\p a8.) a16
 
   %% [1] p. 37
   gis4^\< a8. a16 d4\!
   cis8. cis16 b4. cis8
-  a4^\> fis4.^\dim gis8
+  a4^\> fis4. gis8            % [1]: additional textual "dim"
   gis4\!^\p gis~ gis8 r
 
   %% [1] p. 38
@@ -241,18 +242,19 @@ OffertoireSopranos =  \relative d'' {
 
   %% [1] p. 41
   R1*2
-  r8 d^\pp a8. g16 a4 cis8 d % pp not in [1]
+  r8 d^\tag #'aix \pp a8. g16 a4 cis8 d
   b4.( cis8) d d cis8. b16
 
   %% [1] p. 42
   e4 d8 cis b4. b8 |
   %% J
-  b8 ais b cis d4^\cresc d8 d
-  d8(^\<( cis) d e\!\breathe fis2~^\f
+  b8 ais b cis d4^\< d8 d     % [1]: textual "cresc" here, hairpin
+                              % starts at beginning of next measure
+  d8( cis) d e\!\breathe fis2~^\f
   fis8( e) d cis b4 b8 b
 
   %% [1] p. 43
-  b8^\dim( a)^\< g fis g4 g8( b)
+  b8^\>( a) g fis g4 g8( b)   % [1]: additional textual "dim."
   ais4^\pp b b( ais)
   b4~ b8 r a^\dolcesempre fis4( g8) |
   %% K
@@ -273,7 +275,7 @@ OffertoireAltos =  \relative fis' {
 
   %% [1] p. 23-24 "O domine Jesu christe rex"
   R1*6
-  r2 r8^\pp fis\( d8. cis16
+  r2 r8 fis\(^\ppdolcissimo d8. cis16
   d4 fis8 g d4 b8 cis
 
   %% [1] p. 25 "gloriæ"
@@ -312,7 +314,7 @@ OffertoireAltos =  \relative fis' {
   %% [1] p. 30-40 "dant in obscuro"
   %% D
   cis4 r 2.
-  r2 r8 e a( d,)
+  r2 r8 e^\p a( d,)
   cis4 cis r2
   R1*4 |
 
@@ -332,21 +334,21 @@ OffertoireAltos =  \relative fis' {
   %% [1] p. 42 "æ libera animas"
   gis8( b) a g fis e fis g |
   %% J  "defunctorum de pœnis inferni / de pœnis in-"
-  fis4 g a8( g) a bes
-  a( ais) b cis d( cis b a)
+  fis4 g a8(^\tag #'aix \< g) a bes
+  a( ais) b cis d(^\tag #'aix \f cis b a)
   gis4 a a8( gis) fis e
 
   %% [1] p. 43 "ferni et de profundo lacu / Ne cadant in obscu-"
-  d8( cis) b cis d4 d8( g)
-  fis4 fis fis2
-  fis4~ fis8 r fis dis4( e8) |
+  d8(^\tag #'aix \> cis) b cis d4 d8( g)
+  fis4^\tag #'aix \pp fis fis2
+  fis4~ fis8 r fis^\tag #'aix \dolcesempre dis4( e8) |
   %% K
   e4 e8 e fis( dis4 e8)
 
   %% [1] p. 44 "ro / Amen, amen amen."
   e4~ e8 r e8( fis4 e8)
 
-  dis4.( e8) fis4( gis
+  dis4.( e8) fis4(^\tag #'aix \pp gis
   ais8 b cis dis e dis cis b
   cis8 b) ais( gis) fis2
   fis1~
@@ -372,7 +374,7 @@ OffertoireTenors =  \relative d' {
   d4. cis8 d4.( cis8)
   bis4~ bis8 r r2 |
   %% B
-  r8 e^\( cis8. bis16 cis4 e8 fis
+  r8 e^\tag #'aix -\ppsempre ^\( cis8. bis16 cis4 e8 fis
 
   %% [1] p. 27 "christe rex gloriæ libera animas defunctorum de ore leo-"
   cis4 a8 b cis8. cis16 dis4~\)
@@ -388,15 +390,15 @@ OffertoireTenors =  \relative d' {
   r4 r8 fis8^\p b,( cis) d cis~
 
   %% [1] p. 29 "_ rex gloria, O domine Jesu Christe, ne ca-"
-  cis8 b d8. e16 a,8 \breathe d=' cis g'
-  fis4 e8( d) cis( d) b4
-  ais4~ ais8 r r2
-  r2 r8 c c( b) |
+  cis8 b d8. e16 a,8^\tag #'aix \< \breathe d=' cis g'
+  fis4^\tag #'aix \f e8( d) cis(^\tag #'aix \> d) b4
+  ais4~^\tag #'aix \p ais8 r r2
+  r2 r8 c^\tag #'aix \p c( b) |
 
-  %% [1] p. 30-40 "dant in obscuro" 
+  %% [1] p. 30-40 "dant in obscuro"
   %% D
   ais4 r r2
-  r2 r8 c c( b)
+  r2 r8 c^\tag #'aix \p c( b)
   a4 a r2
   R1*4
 
@@ -416,21 +418,21 @@ OffertoireTenors =  \relative d' {
   %% [1] p. 42 "ra animas defunctroium de pœnis inferni, de pœnis in-"
   cis4 fis8( e) d4 d |
   %% J
-  cis4 d8( e) f4 f8 f
-  e4 fis8 g fis( e d cis)
+  cis4 d8( e) f4^\tag #'aix \< f8 f
+  e4 fis8 g fis(^\tag #'aix \f e d cis)
   b4. cis8 d4 d8 e
 
   %% [1] p. 43 "ferni et de profundo lacu / Ne cadant in obscu-"
-  fis8( e) d cis b4 b8( d)
-  cis( fis) e( d) cis2
-  d4~ d8 r a fis4( g8) |
+  fis8(^\tag #'aix \> e) d cis b4 b8( d)
+  cis(^\tag #'aix \pp fis) e( d) cis2
+  d4~ d8 r a^\tag #'aix \dolcesempre fis4( g8) |
   %% K
   g4 g8 g a( fis4 g8)
 
   %% [1] p. 44
   g4 ~ g8 r b4( e,=) |
 
-  fis4( gis) ais4( b
+  fis4( gis) ais4(^\tag #'aix \pp b
   cis8 dis e fis gis fis e dis
   e8 dis) cis( b) <<
     { \voiceOne ais4( e') | dis1~ | dis4 }
@@ -448,15 +450,15 @@ OffertoireBasses = \relative fis {
   r8 fis^\p d8. cis16 d4 fis8 g
 
   %% [1] p. 29 "christe rex gloriæ / Jesu christe ne ca-"
-  d4 b8 cis d8. d16 e4~
-  e8\breathe d e( fis) g( e4 eis8)
-  fis4~ fis8 r r2
-  r2 r8 fis fis( e) |
+  d4 b8 cis d8.^\tag #'aix \< d16 e4~
+  e8^\tag #'aix \f \breathe d e( fis) g(^\tag #'aix \> e4 eis8)
+  fis4~^\tag #'aix \p fis8 r r2
+  r2 r8 fis^\tag #'aix \p fis( e) |
 
   %% [1] p. 30-40 "dant in obscuro"
   %% D
   fis4 r r2
-  r2 r8 fis fis( e)
+  r2 r8 fis^\tag #'aix \p fis( e)
   fis4 fis r2
   R1*4
 
@@ -476,24 +478,26 @@ OffertoireBasses = \relative fis {
   %% [1] p. 42 "libera defunctorum de pœnis infer-"
   r2 r8 g'=( e8.) d16 |
   %% J
-  e4~ e8 r r bes' g8.( f16)
-  g4 fis8 e d2
+  e4~ e8 r r bes'^\tag #'aix \< g8.( f16)
+  g4 fis8 e d2^\tag #'aix \f
   e4. e8 fis4( gis)
 
   %% [1] p. 43 "ni et de profundo lacu / Ne cadant in obscu-"
-  a4. a8 a( g) fis( e)
-  e8( d) cis( b) << { \voiceOne fis'2 }
-                    \context Voice = "bassesII" {
-                      \voiceTwo fis,2
-                    } >> \oneVoice
-  b=,4~ b8 r fis' dis4( e8) |
+  a4.^\tag #'aix \> a8 a( g) fis( e)
+  e8(^\tag #'aix \pp d) cis( b) <<
+    { \voiceOne fis'2 }
+    \context Voice = "bassesII" {
+      \voiceTwo fis,2
+    }
+  >> \oneVoice
+  b=,4~ b8 r fis'^\tag #'aix \dolcesempre dis4( e8) |
   %% K
   e4 e8 e fis( dis4 e8)
 
   %% [1] p. 44 "rum. / Amen, amen, amen."
   e4~ e8 r d4( cis)
 
-  b2 e(
+  b2 e(^\tag #'aix \pp
   e8 fis gis ais b2
   fis4) fis8( e) fis2
   <<
@@ -548,7 +552,7 @@ OffertoireLyricsBaritoneSolo = \lyricmode {
   qua -- rum ho -- di -- e me -- mo -- ri -- am fa -- ci -- mus.
   Fac -- e -- as, fac -- e -- as, Do -- mi -- ne,
   de mor -- te tran -- si -- re ad vi -- tam,
-  quam o -- lim A -- bra -- hæ pro -- mi -- sis -- ti,
+  quam o -- lim A -- bra -- hæ pro -- mi -- si -- sti,
   pro -- mi -- sis -- ti
   et se -- mi -- ni e -- ius. __
 }
@@ -560,13 +564,13 @@ OffertoireLyricsCommonA = \lyricmode {
   et de pro -- fun -- do la -- cu;
 
   o Do -- mi -- ne Je -- su Chris -- te, Rex glo -- ri -- æ,
-  li -- be -- ra a -- ni -- mas de -- func -- to -- rum
+  li -- be -- ra a -- ni -- mas de -- fun -- cto -- rum
   de o -- re le -- o -- nis,
-  ne abs -- or -- be -- at Tar -- ta -- rus.
+  ne ab -- sor -- be -- at Tar -- ta -- rus.
 }
 
 OffertoireLyricsCommonEnd =  \lyricmode {
-  li -- be -- ra a -- ni -- mas de -- func -- to -- rum
+  li -- be -- ra a -- ni -- mas de -- fun -- cto -- rum
   de pœ -- nis in -- fer -- ni,
   de pœ -- nis in -- fer -- ni,
   et de pro -- fun -- do la -- cu;
@@ -610,7 +614,7 @@ OffertoireLyricsBasses = \lyricmode {
 
   O Do -- mi -- ne Je -- su Chris -- te Rex glo -- ri -- æ,
   Rex glo -- ri -- æ,
-  li -- be -- ra de -- func -- to -- rum
+  li -- be -- ra de -- fun -- cto -- rum
   de pœ -- nis in -- fer -- ni,
   et de pro -- fun -- do la -- cu,
   ne ca -- dant in obs -- cu -- rum.

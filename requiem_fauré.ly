@@ -166,6 +166,8 @@ commentedDynamic =
 menop = \commentedDynamic "meno" "p" "" #-13.8
 fsempre = \commentedDynamic "" "f" "sempre" #7.2
 ffsempre = \commentedDynamic "" "ff" "sempre" #7.3
+pdolce =  \commentedDynamic "" "p" "dolce" #5.2
+ppdolcissimo = \commentedDynamic "" "pp" "dolcissimo" #10.5
 ppsempre = \commentedDynamic "" "pp" "sempre" #7.5
 ppsostenuto = \commentedDynamic "" "pp" "sostenuto" #9.0
 semprepp = \commentedDynamic "sempre" "pp" "" #-19.0
@@ -199,6 +201,7 @@ dolcetranquille = -\markup { \italic "dolce tranquille" }
 espress = -\markup { \italic "espress." }
 sempre = -\markup { \italic "sempre" }
 sempredolce = -\markup { \italic "sempre dolce" }
+solo = -\markup { \right-align "Solo" }
 sostenuto = -\markup { \italic "sostenuto" }
 
 labelSopranos = "S"
