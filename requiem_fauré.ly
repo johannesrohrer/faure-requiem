@@ -141,6 +141,10 @@ taglineText = \markup {
     \override InstrumentName #'self-alignment-X = #RIGHT
     \override InstrumentName #'padding = #1  % default 0.3
   }
+  \context {
+    \ChoirStaff
+    \accidentalStyle #'ChoirStaff "modern-voice"
+  }
 }
 
 %% So far, we manually hard-code horizontal offsets to center on the
