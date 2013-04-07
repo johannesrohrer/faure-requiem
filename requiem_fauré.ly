@@ -197,7 +197,7 @@ pococresc =
              'span-text "poco cresc.")
 
 
-div = -\markup { \right-align "div." }
+div = -\tweak #'X-offset #-2 -\markup { \right-align "div." }
 dolce = -\markup { \italic "dolce" }
 dolcesempre = -\markup { \italic "dolce sempre" }
 dolceespressivo = -\markup { \italic "dolce espressivo" }
@@ -219,10 +219,22 @@ labelTenors = "T"
 labelTenorsShort = "T"
 labelBasses = "B"
 labelBassesShort = "B"
+labelBassesI = "BI"
+labelBassesShortI = "BI"
 labelSopranoSolo = "S"
 labelSopranoSoloShort = "S"
 labelBaritoneSolo = "Bar"
 labelBaritoneSoloShort ="Bar"
+
+switchToBassesI = {
+  \set Staff.shortVocalName = \labelBassesI
+  <>^\tweak #'X-offset #-2 -\markup { \right-align "BI" }
+}
+switchToBassesAll = {
+  \set Staff.shortVocalName = \labelBasses
+  <>^\tweak #'X-offset #-2 -\markup { \right-align "BI/II" }
+}
+
 
 \include "introitetkyrie.ily"
 \include "offertoire.ily"

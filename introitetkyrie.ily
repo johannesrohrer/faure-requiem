@@ -360,7 +360,7 @@ IntroitEtKyrieTenors =  \relative d' {
   <<
     {
       \voiceOne
-      d4^\tag #'aix -\tweak #'X-offset #-2 \div ^\pp \(
+      d4^\tag #'aix \div ^\pp \(
         d d4. d8 | d2 d \)
     }
     \context Voice = "tenorsII" { \voiceTwo a4 a a4. a8 | a2 a }
@@ -514,7 +514,7 @@ IntroitEtKyrieBasses =  \relative f {
   <<
     {
       \voiceOne
-      f4^\tag #'aix -\tweak #'X-offset #-2 \div ^\pp \(
+      f4^\tag #'aix \div ^\pp \(
         f f4. f8 | f2 f\)
     }
     \context Voice = "bassesII" { \voiceTwo d4 d d4. d8 | d2 d }

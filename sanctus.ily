@@ -152,7 +152,7 @@ SanctusSopranos = \relative bes' {
   bes2.\)
 
   %% [1] p. 55 "Hosanna in excelsis"
-  bes4^\pocoapococresc\( c d
+  bes4^\pocoapococresc\( c d!
   es4( f) g
   es2(^\< d4)\!
   %% F
@@ -165,10 +165,11 @@ SanctusSopranos = \relative bes' {
   r4 r r8 es8^\ff
   es2^\accent es4
   as,4( bes) c
-  es2^\dim es4
+  es2^\> es4                  % [1]: textual "dim" here, hairpin begins
+                              % at the start of the following measure
 
   %% [1] p. 58 "in excelsis / Sanc-"
-  as,4(^\> bes) c\!
+  as,4( bes) c\!
   es2.^\p
   es2^\pp r4
   g,='2.^\pp
@@ -199,7 +200,6 @@ SanctusTenorsA = \relative bes {
 
   %% [1] p. 46 "Sancus / Sanc-"
   R2.*2
-  %% TODO: indicate "1res basses"? And/or write out second basses?
   bes2^\pp\( c4~
   c4 bes( as)
 
@@ -213,13 +213,13 @@ SanctusTenorsA = \relative bes {
   %% A
   bes4~\) bes8 r r4
   R2.
-  bes4^\p\( c d~\)
+  bes4^\p\( c d!~\)
   d4^\> bes( as)\!
 
   %% [1] p. 49 "us / Deus Saba-"
   bes4~ bes8 r r4
   R2.
-  bes4^\pp^\<( c) d~\!
+  bes4^\pp^\<( c) d!~\!
   d4^\> bes as\! |
 
   %% [1] p. 50 "oth"
@@ -250,7 +250,6 @@ SanctusTenorsA = \relative bes {
   R2.*1
 
   %% [1] p. 56 "Hosanna in excelsis"
-  %% TODO: from here 1rs et 2e basses
   r4 r r8 es='8^\ff
   es2\accent es4
   as,4( bes) c
@@ -271,7 +270,7 @@ SanctusTenors = \relative bes {
   %% [1] p. 58 "Sanc-"
   R2.*2
   <<
-    { \voiceOne bes=2.~^\pp | bes2. }
+    { \voiceOne bes=2.~^\pp^\div | bes2. }
     \context Voice = "tenorsII" { \voiceTwo g=2.~ | g2. }
   >>
 
@@ -285,7 +284,15 @@ SanctusTenors = \relative bes {
   R2.\fermataMarkup
 }
 
-SanctusBassesA = \SanctusTenorsA
+SanctusBassesA = <<
+  {
+    s2.*4
+    \switchToBassesI
+    s2.*38
+    s2 s8 \switchToBassesAll
+  }
+  \SanctusTenorsA
+>>
 
 SanctusBasses = \relative es {
   \clef "bass"
@@ -295,7 +302,7 @@ SanctusBasses = \relative es {
   %% [1] p. 58 "Sanc-"
   R2.*2
   <<
-    { \voiceOne es=2.~^\pp | es2. }
+    { \voiceOne es=2.~^\pp^\div | es2. }
     \context Voice = "bassesII" { \voiceTwo bes=,2.~ | bes2. }
   >>
 
@@ -335,15 +342,15 @@ SanctusTextCombined = \markup {
 }
 
 SanctusLyricsSopranos = \lyricmode {
-  Sanc -- tus, sanc -- tus,
-  sanc -- tus  Do -- mi -- nus,
+  San -- ctus, san -- ctus,
+  san -- ctus  Do -- mi -- nus,
 
   %% A
   Do -- mi -- nus De -- us,
   De -- us Sa -- ba -- oth.
 
   %% B
-  Sanc -- tus Do -- mi -- nus De -- us.
+  San -- ctus Do -- mi -- nus De -- us.
 
   %% C
   Ple -- ni sunt cœ -- li et ter -- ra
@@ -357,16 +364,16 @@ SanctusLyricsSopranos = \lyricmode {
   sis.
   Ho -- san -- na in ex -- cel -- sis,
   in ex -- cel -- sis.
-  Sanc -- tus. __
+  San -- ctus. __
 }
 
 SanctusLyricsAltos = \lyricmode {
-  Sanc -- tus. __
+  San -- ctus. __
 }
 
 SanctusLyricsBasses = \lyricmode {
-  Sanc -- tus, sanc -- tus,
-  sanc -- tus Do -- mi --
+  San -- ctus, san -- ctus,
+  san -- ctus Do -- mi --
 
   %% A
   nus,
@@ -384,7 +391,7 @@ SanctusLyricsBasses = \lyricmode {
   %% F
   Ho -- san -- na in ex -- cel -- sis,
   in ex -- cel -- sis.
-  Sanc -- tus. __
+  San -- ctus. __
 }
 
 SanctusLyricsTenors = \SanctusLyricsBasses
@@ -420,8 +427,8 @@ Sanctus = \score {
         \new Lyrics \lyricsto "tenors" \SanctusLyricsTenors
       >>
       \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
+        vocalName = \labelBassesI
+        shortVocalName = \labelBassesShortI
       } <<
         \SanctusCommon
         \new Voice = "basses" \SanctusBasses
