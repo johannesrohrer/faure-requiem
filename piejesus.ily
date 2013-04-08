@@ -73,7 +73,10 @@ PieJesusTemplate = \relative {
 PieJesusSopranoSolo = \relative bes' {
   %% [1] p. 61 Pie Jesu Domine / dona eis"
   R1
-  bes4.^\dolcetranquille\p bes8 es4. es8
+  bes4.^\tag #'aix -\tweak #'extra-offset #'(-2 . 0.45) -\solo
+       ^\dolceetranquille
+       _\tweak #'X-offset #-3 -\tweak #'Y-offset #-2 -\p
+     bes8 es4. es8
   d4. c8 d2
   d8( f) d( c) d4 bes
 
@@ -83,9 +86,21 @@ PieJesusSopranoSolo = \relative bes' {
   bes4. a8 bes4~ bes8 r
   R1*3 |
   %% A "Pie Jesu domine / dona eis"
-  bes4.^\markup { \italic "un poco più" } bes8 f'4.^\< f8
-  f8(e) d4 e2^\mf
-  e8( f) d( c) d4 bes
+  <<
+    {
+      <>^\tweak #'X-offset #1
+        -\tweak #'extra-spacing-width #'(0 . -3)
+        -\tweak #'extra-offset #'(0 . 0.8)
+        -\unpocopiu
+      s4*3 s4^\< |
+      s2 s2^\mf
+    }
+    {
+      bes4. bes8 f'4. f8
+      f8(e) d4 e2
+      e8( f) d( c) d4 bes
+    }
+  >>
 
   %% [1] p. 64 "requiem / dona eis Requiem"
   a4. bes8 c2
@@ -95,15 +110,15 @@ PieJesusSopranoSolo = \relative bes' {
 
   %% [1] p. 65 "dona eis domine / dona eis requiem"
   %% B
-  r2 r4 c'=''^\p^\dolce
+  r2 r4 c'=''^\pdolce
   c4( es) d f
   d4.^\> c8 d2^\!
   c4 es d f
-  d4.^\> c8 d2
+  d4.^\> c8 d2\!
 
   %% [1] p. 66 "sempiternam requim"
   d4^\pococresc f e a,
-  c=''4.^\> b8 a2 |
+  c=''4.^\> b8 a2\! |
   %% C "sempiternam requiem"
   a4.^\p g8 a4 a
   a4. g8 a2
@@ -119,8 +134,10 @@ PieJesusSopranoSolo = \relative bes' {
   %% [1] p. 68 "Pie Jesu Domine / dona eis / dona eis"
   d8( f) d( c) d4 bes
   c4. d8 es2
+  \override DynamicLineSpanner #'staff-padding = #2
   d8(^\< f) d( c) d4 bes\!
   bes8(^\> d) bes( a) bes4 g\! |
+  \revert DynamicLineSpanner #'staff-padding
 
   %% [1] p. 69 "sempiternam requiem / sempiternam requiem"
   %% E
@@ -180,8 +197,8 @@ PieJesusLyricsSopranoSolo = \lyricmode {
 PieJesus = \score {
   <<
     \new Staff = "SopranoSolo" \with {
-      vocalName = "Sopran Solo"
-      shortVocalName = "SS"
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
     } <<
       \PieJesusGlobal
       \PieJesusCommon
