@@ -40,7 +40,7 @@ AgnusDeiGlobal = {
   \bar "||"
 
   \time 3/4
-  \tempo "1° Tempo" 4 = 72
+  \tempo "Tempo I" 4 = 72 % [1]: "1° Tempo"
   s2.*7
   \bar "|."
 }
@@ -149,20 +149,20 @@ AgnusDeiSopranos = \relative g' {
 
   %% [1] p. 75 "dei / Agnus dei qui tollis"
   dis4^\p e\breathe f\(
-  e^\cresc a( c)    % [1]: additional redundant hairpin
+  e^\< a( c)                  % [1]: additional redundant text "cresc."
   e4~^\f e8\) r g,4
-  g4^\> fis\1 r
+  g4^\> fis\! r
 
   %% [1] p. 76 "peccata mundi / dona"
   dis4^\p\( e f
   f4(^\< a c)\!
-  d2\)^\f\breathe es4^\sempref |
+  d2\)^\f\breathe es4 |       % [1]: additional "sempre f"
   %% C
   es4( d) r
 
   %% [1] p. 77-80 "dona eis requiem" / "Lux"
   d4 c a
-  f4^\> d e\!       % [1]: additional redundant "dim."
+  f4^\> d e\!                 % [1]: additional redundant "dim."
   f4~ f8 r r4 |
 
   %% R2.*6
@@ -170,7 +170,7 @@ AgnusDeiSopranos = \relative g' {
   %% R2.*4
   R2.*14 |
 
-  c'=''2.~^\p^\dolcesempre\(
+  c'=''2.~^\tweak #'X-offset #-3 -\tweak #'Y-offset #-1 \p^\dolcesempre\(
 
   %% [1] p. 81 "_ æterna luceat eis / luceat"
   c2 c4 |
@@ -188,7 +188,7 @@ AgnusDeiSopranos = \relative g' {
 
   %% [1] p. 83 "tuis in æternum quia pius,"
   c2 c4\)
-  ces4(\( es) c
+  ces4(\( es) ces
   bes2 bes4\)
   a4\((cis) a
   as2 as4\)         % [1]: end of phrasing slur unclear
@@ -222,13 +222,13 @@ AgnusDeiSopranos = \relative g' {
   r2 a4^\pp\( a
   a a c4. c8 c2~ c4\) r |
   %% H
-  r4 d^\cresc d d   % [1]: additional redundant hairpin
+  r4 d^\< d d   % [1]: additional redundant textual "cresc."
 
   %% [1] p. 89 "petua luceat / luceat / luceat"
   f4.^\f f8 f2
   r4 c4 des2^\>
-  des4~^\dim des8 r r4 as='4
-  a2 a4 r
+  des4~ des8 r r4 as='4       % [1]: additional textual "dim."
+  a2 a4^\tag #'aix \! r
   r4 a^\pp a a
 
   %% [1] p. 90-91 "eis"
@@ -249,20 +249,20 @@ AgnusDeiAltos = \relative es' {
 
   %% [1] p. 75 "dei / Agnus dei qui tollis"
   a,=4^\p bes\breathe b
-  a4^\cresc e'2
+  a4^\< e'2                   % [1]: textual "cresc." instead
   e4~^\f e8 r es4
-  es4 es r
+  es4^\tag #'aix -\> es^\tag #'aix -\! r
 
   %% [1] p. 76 "peccata mundi / dona"
   a,=4^\p bes b
-  a4( f' g)
-  fis2^\f g4^\sempref |
+  a4(^\tag #'aix -\< f' g)
+  fis2^\f g4 |                % [1]: additional "sempre f"
   %% C
   f2 r4
 
   %% [1] p. 77-81m1 "dona eis requiem"
   e4 g c,='
-  c4 c c
+  c4^\tag #'aix -\> c c^\tag #'aix -\!
   c4~ c8 r r4 |
   %% R2.*6
   %% R2.*9 % D
@@ -273,7 +273,7 @@ AgnusDeiAltos = \relative es' {
   %% E
   as'='2^\pp g4
   ges2 ges4
-  ges4 ges ges
+  ges4 ges f
   e2 e4
 
   %% [1] p. 82 "luceat eis domine / cum sanctis"
@@ -293,13 +293,13 @@ AgnusDeiAltos = \relative es' {
   es4( f) g |
   %% F
   as2 as4
-  as2 g4
+  as2^\tag #'aix \crescmolto g4
   as2 as4
 
   %% [1] p. 85 "in æternum quia pi-"
-  as2 g4
+  as2^\tag #'aix \< g4
   as2 as4
-  as2^\f a4
+  as2^\fsempre a4             % [1]: just \f
   g2.
 
   %% [1] p. 86-87m1 "us es"
@@ -321,13 +321,13 @@ AgnusDeiAltos = \relative es' {
   a4 a a4. a8
   a2~ a4 r |
   %% H
-  r4 bes^\cresc bes bes
+  r4 bes^\tag #'aix \< bes bes
 
   %% [1] p. 89 "petua luceat / luceat"
-  c4. c8 c2
-  r4 f, f2
+  c4.^\tag #'aix \f c8 c2
+  r4 f, f2^\tag #'aix \>
   f4~ f8 r r4 as
-  a2 a4 r
+  a2 a4^\tag #'aix \! r
   r4 d,^\pp d d
 
   %% [1] p. 90-91 "eis"
@@ -343,7 +343,7 @@ AgnusDeiTenors = \relative c' {
 
   %% [1] p. 70-71 "Agnus"
   R2.*6
-  r4 c4^\p^\dolceespressivo\( c
+  r4 c4^\tweak #'X-offset #-3 \p^\dolceespressivo\( c
 
   %% [1] p. 72 "Dei qui tollis peccata mun-"
   c4 d\) e\(
@@ -354,7 +354,7 @@ AgnusDeiTenors = \relative c' {
   %% [1] p. 73 "di / dona eis dona eis"
   f4~ f8\) r^\pococresc c'='4\( |
   %% A
-  c4^\< d e\!\breathe
+  c4 d e\!\breathe            % [1]: Additional hairpin starts at c4
   e4( f) e8( d)
   c4( bes) a\)\breathe
 
@@ -367,20 +367,20 @@ AgnusDeiTenors = \relative c' {
 
   %% [1] p. 75 "dei / Agnus dei qui tollis"
   fis4^\p  g\breathe gis
-  a4^\cresc c4( e)
+  a4^\< c4( e)                % [1]: textual "cresc." instead
   e4~^\f e8 r bes4
-  bes4 a r
+  bes4^\tag #'aix -\> a^\tag #'aix -\! r
 
   %% [1] p. 76 "peccata mundi / dona"
   fis4^\p g gis
-  a( c es)
-  d2^\f es4^\sempref |
+  a(^\tag #'aix -\< c es)
+  d2^\f es4 |                 % [1]: additional "sempre f"
   %% C
   es4( d) r
 
   %% [1] p. 77 "dona eis requiem / Agnus"
   d4 c a
-  a4 a bes
+  a4^\tag #'aix -\> a bes^\tag #'aix -\!
   a4~ a8 r r4
   R2.
   r4^\espress c4\( c
@@ -389,7 +389,7 @@ AgnusDeiTenors = \relative c' {
   c4 d e
   e4 f\)\breathe c\(
   c4( d) c8( bes)
-  c4 a\) d^\< |     % [1]: additional redundant "cresc."
+  c4 a\) d^\cresc |     % [1]: additional redundant short hairpin
 
   %% [1] p. 79 "na / dona eis requiem"
   %% D
@@ -407,7 +407,7 @@ AgnusDeiTenors = \relative c' {
 
   %% [1] p. 81m2 "Lux æterna luceat eis"
   %% E
-  <>^"Div."
+  <>^\div
   <<
     { \voiceOne es='2^\pp es4 | es2 es4 | des4 des des | cis2 cis4 }
     \context Voice = "tenorsII" {
@@ -419,7 +419,7 @@ AgnusDeiTenors = \relative c' {
   <<
     { b=4 b b | b( a) gis | g as bes | c es es }
     \context Voice = "tenorsII" {
-      gis,=4 gis bes | b( a) gis | g as bes | c c c
+      gis,=4 gis b | b( a) gis | g as bes | c c c
     }
   >>
 
@@ -436,13 +436,18 @@ AgnusDeiTenors = \relative c' {
      \context Voice = "tenorsII" { as=2 bes4 } >>
   %% F
   <<
-    { c='2 bes4 | c2 c4 | b2 c4 }
+    { c='2 bes4 | c2^\tag #'aix \crescmolto c4 | b2 c4 }
     \context Voice = "tenorsII" { c='2 bes4 | c2 c4 | b2 c4 }
   >>
 
   %% [1] p. 85 "in æternum quia pi-"
   <<
-    { des='2 des4 | c2 des4 | d2^\f d4 | e2. }
+    {
+      des='2^\tag #'aix \< des4 |
+      c2 des4 |
+      d2^\fsempre d4 |        % [1]: just \f
+      e2.
+    }
     \context Voice = "tenorsII" {
       des='2 des4 | c2 des4 | d2 d4 | e2.
     }
@@ -473,27 +478,27 @@ AgnusDeiTenors = \relative c' {
   >> \oneVoice r4 |
 
   %% H
-  r4 << { \voiceOne f='4^\cresc f f }
+  r4 << { \voiceOne f='4^\tag #'aix \< f f }
         \context Voice = "tenorsII" { \voiceTwo d='4 d d } >>
 
   %% [1] p. 89 "petua luceat / luceat / luceat"
-  << { f='4. f8 f2 }
+  << { f='4.^\tag #'aix \f f8 f2 }
     \context Voice = "tenorsII" { c='4. c8 c2 } >>
   \oneVoice r4 <<
-    { \voiceOne c='4 des2 | des4~ des8 }
+    { \voiceOne c='4 des2^\tag #'aix \> | des4~ des8 }
     \context Voice = "tenorsII" { \voiceTwo as=4 as2 | as4~ as8 }
   >> \oneVoice r8 r4 <<
-    { \voiceOne des='4 | cis2 cis4 }
+    { \voiceOne des='4 | cis2 cis4^\tag #'aix \! }
     \context Voice = "tenorsII" { \voiceTwo des='4 | cis2 cis4 }
   >> \oneVoice r4
   r4 <<
     { \voiceOne d4^\pp d d }
-    \context Voice = "tenorsII" { \voiceTwo d='4 d bes }
+    \context Voice = "tenorsII" { \voiceTwo f,=4 f g }
   >>
 
   %% [1] p. 90-91 "eis"
   <<
-    { \voiceOne d='2( cis) | d2 }
+    { \voiceOne d'='2( cis) | d2 }
     \context Voice = "tenorsII" { \voiceTwo a=1 | a2 }
   >> \oneVoice r4
   R2.*5
@@ -506,18 +511,18 @@ AgnusDeiBasses = \relative c {
   %% [1] p. 70-74 "Agnus"
   R2.*18
   %% B
-  c4^\f\> c\! r
+  c4^\f^\> c\! r
 
   %% [1] p. 75 "dei / Agnus dei qui tollis"
   c4^\p c\breathe d\(
-  e\)^\cresc e4( a)
+  e\)^\< e4( a)               % [1]: textual "cresc." instead
   c4~^\f c8 r c,4
-  c4 c r
+  c4^\tag #'aix -\> c^\tag #'aix -\! r
 
   %% [1] p. 76 "peccata mundi / dona"
   c4^\p c d
-  es2( c'4)
-  c2^\f bes4^\sempref |
+  es2(^\tag #'aix -\< c'4)
+  c2^\f bes4 |                % [1]: additional "sempre f"
   %% C
   << { \voiceOne bes2 }
      \context Voice = "bassesII" { \voiceTwo f2 } >> \oneVoice r4
@@ -525,7 +530,7 @@ AgnusDeiBasses = \relative c {
   %% [1] p. 77-81m1 "dona eis requiem"
   << { \voiceOne a4 a e }
      \context Voice = "bassesII" { \voiceTwo e4 e e } >>
-  \oneVoice f4 f g
+  \oneVoice f4^\tag #'aix -\> f g^\tag #'aix -\!
   f4~ f8 r r4 |
   %% R2.*6
   %% R2.*10 % D
@@ -533,9 +538,9 @@ AgnusDeiBasses = \relative c {
 
   %% [1] p. 81m2 "Lux æterna luceat eis"
   %% E
-  <>^"Div."
+  <>^\div
   <<
-    { \voiceOne as2^\pp g4 | es2 es4 | es es f | fes2 fes4 }
+    { \voiceOne as2^\pp g4 | ges2 ges4 | ges ges f | fes2 fes4 }
     \context Voice = "bassesII" {
       \voiceTwo as,=,2 c4 | es2 es4 | ges,4 ges bes | des2 des4
     }
@@ -563,7 +568,7 @@ AgnusDeiBasses = \relative c {
       es=2 bes'4 |
       %% F
       as2 as4
-      as2 g4
+      as2^\tag #'aix \crescmolto g4
       as2 as4
     }
     \context Voice = "bassesII" {
@@ -577,7 +582,12 @@ AgnusDeiBasses = \relative c {
 
   %% [1] p. 85 "in æternum quia pi-"
   <<
-    { as=2 g4 | as2 as4 | as2^\f a4 | a2. }
+    {
+      as=2^\tag #'aix \< g4 |
+      as2 as4 |
+      as2^\fsempre a4 |       % [1]: just \f
+      a2.
+    }
     \context Voice = "bassesII" {
       f=2 e4 | f2 f4 | f2 f4 | e2.
     }
@@ -620,7 +630,7 @@ AgnusDeiBasses = \relative c {
   r4 <<
     {
       \voiceOne
-      bes'=4^\cresc bes bes     % [1]: additional redundant hairpin
+      bes'=4^\< bes bes       % [1]: additional textual "cresc."
     }
     \context Voice = "bassesII" { \voiceTwo f=4 f f }
   >>
@@ -630,7 +640,7 @@ AgnusDeiBasses = \relative c {
      \context Voice = "bassesII" { f,=4. f8 f2 } >>
   \oneVoice r4 <<
     {
-      \voiceOne c'='4 des2 |
+      \voiceOne c'='4 des2^\tag #'aix \> |
       %% [1] has d instead of des in the following measure, which does
       %% not fit with the other voices.
       des4~ des8
@@ -641,7 +651,7 @@ AgnusDeiBasses = \relative c {
       \voiceTwo as=4 as2 | as4~ as8
     }
   >> \oneVoice r8 r4 <<
-    { \voiceOne as4 | g2 g4 }
+    { \voiceOne as4 | g2 g4^\tag #'aix \! }
     \context Voice = "bassesII" { \voiceTwo as4 | g2 g4 }
   >>\oneVoice r4
   r4 << { \voiceOne f=4^\pp f g }
@@ -649,7 +659,7 @@ AgnusDeiBasses = \relative c {
 
   %% [1] p. 90-91 "eis"
   << { a'=1 | a2 }
-     \context Voice = "bassesII" { d,=2( g) | fis2 } >> \oneVoice r4
+     \context Voice = "bassesII" { d,=2( g) | fis!2 } >> \oneVoice r4
 
   R2.*5
   R2.\fermataMarkup
