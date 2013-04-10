@@ -172,6 +172,7 @@ fsempre = \commentedDynamic "" "f" "sempre" #7.2
 ffsempre = \commentedDynamic "" "ff" "sempre" #7.3
 pdolce =  \commentedDynamic "" "p" "dolce" #5.2
 ppdolcissimo = \commentedDynamic "" "pp" "dolcissimo" #10.5
+psempre = \commentedDynamic "" "p" "sempre" #7.5
 ppsempre = \commentedDynamic "" "pp" "sempre" #7.5
 ppsostenuto = \commentedDynamic "" "pp" "sostenuto" #9.0
 semprepp = \commentedDynamic "sempre" "pp" "" #-19.0

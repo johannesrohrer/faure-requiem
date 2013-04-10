@@ -97,7 +97,7 @@ InParadisumSopranos = \relative fis' {
 
   %% [1] p. 114 "In para-"
   R2.*2
-  fis4\(\p^\dolce fis4. a8
+  fis4\(^\pdolce fis4. a8     % [1]: p and "dolce" separate
 
   %% [1] p. 115 "disum / Deducant"
   a2( d4)
@@ -110,7 +110,7 @@ InParadisumSopranos = \relative fis' {
   a2.~\)
   a4 r d\(
   %% A
-  b4^\sempre e=''4. e8
+  b4^\semprep e=''4. e8
 
   %% [1] p. 117 "ventu suscipiant te martyres"
   fis4 d4.\)\breathe d8\(
@@ -128,7 +128,7 @@ InParadisumSopranos = \relative fis' {
   %% [1] p. 119 "sanctam Jerusalem / Jerusa-"
   d4 a4.\)\breathe a8\(
   b2~ b8 b
-  d2\) r8 b\(^\cresc
+  d2\) r8 b\(^\<              % [1]: textual "cresc."
   b2~ b8 b
 
   %% [1] p. 120 "lem / Jerusalem / Je-"
@@ -161,13 +161,13 @@ InParadisumSopranos = \relative fis' {
   fis2.\)
   b2\( g8( a)
   b4. b8 b4\)\breathe
-  cis2^\cresc\( cis8( d)
+  cis2^\< \( cis8( d)         % [1]: textual "cresc."
 
   %% [1] p. 125 "paupere æternam habeas Re-"
   e4. e8 e4 |
   %% E
   f4^\f c a
-  a4.\> a8 a4\)
+  a4.^\> a8 a4\)
   a2.~^\pp
 
   %% [1] p. 126 "quiem / æ-"
@@ -178,14 +178,14 @@ InParadisumSopranos = \relative fis' {
 
   %% [1] p. 127 "ternam habeas"
   %% F
-  g2.
+  b2.
   fis2.\)
   d'2~\( d8 fis,
   fis2.~\)
 
   %% [1] p. 128 "_ requiem"
   fis4~ fis8 r r4
-  fis2.~
+  fis2.^\tag #'aix \ppp ~
   fis2 fis4
   fis2.~
   fis2.~
@@ -238,28 +238,28 @@ InParadisumTenors = \relative d' {
   %% [1] p. 114-119 "Jerusalem"
   R2.*20
   <<
-    { s2.^"Div. Ten."^\pp | s2. | s2.^\cresc }
+    { s2.^\div^\pp | s2. | s2.^\< }  % [1]: textual cresc.
     { \voiceOne d2. | d2 d4 | d2. }
     \context Voice = "tenorsII" { \voiceTwo b2. | b2 b4 | b2. }
   >>
 
   %% [1] p. 120 "Jerusalem / Jeru-"
   <<
-    { s4^\< s s\! | s2.^\f }
-    { b4 cis d | d2. | c2.\( }
-    \context Voice = "tenorsII" { gis4 gis gis | a2. | a2. }
+    { s4 s s | s2.^\f | s2.^\tag #'aix \> }  % [1]: additional hairpin
+    { b4 cis d | d2. | c2. }
+    \context Voice = "tenorsII" { gis4 gis gis | a2. | a2.\( }
   >> |
   %% C
   <<
-    { s2._\ppp }
+    { s2.^\ppp }
     { cis2. }
     \context Voice = "tenorsII" { a2. }
   >>
 
   %% [1] p. 121-125m3 "salem"
   <<
-    { cis2~ cis8( a) | a2.\) }
-    \context Voice = "tenorsII" { a4( g2) | fis2. }
+    { cis2 ~ cis8( a) | a2. }
+    \context Voice = "tenorsII" { a4( g2) | fis2.\) }
   >> \oneVoice
   %% R2.*6
   %% R2.*9 % D
@@ -298,19 +298,19 @@ InParadisumBasses = \relative g {
   %% [1] p. 114-119 "Jerusalem"
   R2.*20
   <<
-    { s2.^"Div. Bass."^\pp }
+    { s2.^\div^\pp | s2. | s2.^\tag #'aix \< }
     { \voiceOne g2. | g2 a4 | gis2. }
     \context Voice = "bassesII" { \voiceTwo g2. | g2 fis4 | e2. }
   >>
 
   %% [1] p. 120 "Jerusalem / Jeru-"
   <<
-    { s4 s s | s2.^\f }
+    { s4 s s | s2.^\f | s2.^\tag #'aix \> }
     { e4 e e | d4( fis2) | f2( c4) }
     \context Voice = "bassesII" { d=4 cis b | a2. | a2. }
   >> |
   %% C
-  \oneVoice a2.\ppp
+  \oneVoice a2.^\ppp
 
   %% [1] p. 121-125m3 "salem"
   a2.
@@ -322,7 +322,7 @@ InParadisumBasses = \relative g {
 
   %% [1] p. 125m4-126 "Requiem"
   <<
-    { \voiceOne a'=2.\pp | g | fis }
+    { \voiceOne a'=2.^\pp | g | fis }
     \context Voice = "bassesII" { \voiceTwo a,2. | a | d }
   >> \oneVoice
   R2.*2
