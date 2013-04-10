@@ -196,12 +196,14 @@ pococresc =
              'span-type 'text
              'span-text "poco cresc.")
 
+atempo = -\markup { \italic "a tempo" }
 div = -\tweak #'X-offset #-2 -\markup { \right-align "div." }
 dolce = -\markup { \italic "dolce" }
 dolcesempre = -\markup { \italic "dolce sempre" }
 dolceespressivo = -\markup { \italic "dolce espressivo" }
 dolceetranquille = -\markup { \italic "dolce e tranquille" }
 espress = -\markup { \italic "espress." }
+pocorall = -\markup { \italic "poco rall." }
 sempre = -\markup { \italic "sempre" }
 sempredolce = -\markup { \italic "sempre dolce" }
 solo = -\markup { \right-align "Solo" }

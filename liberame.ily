@@ -39,6 +39,7 @@ LiberaMeGlobal = {
 
   \mark\default % H, [1] p. 105
   \time 2/2
+  \once\override Score.MetronomeMark #'X-offset = #4
   \tempo "Moderato" 2 = 60
   s1*15
   \mark\default % J, [1] p. 108
@@ -145,10 +146,61 @@ LiberaMeTemplate = \relative {
 }
 
 LiberaMeMainMelody = \relative d {
-  %% TODO: extract dynamics, adapt at occurences as needed
-  %% from first baritone solo
+  %% [1] p. 107 "Libera me domine de morte æternum"
+  d2\(^\pdolce ~ d4. a'8
+  a2 g
+  bes4. bes8 a2\) ~
+  a2 a2\(
+  a2 d,4 e
+  f2( e)
+  d1\) ~
+
+  %% [1] p. 108 "In die illa tremenda, in die il-"
+  %% A
+  d4 r d2^\semprep\( |
+  d2. d4
+  d'='2 c4 bes
+  c2 f,\) ~
+  f4 f^\p\( g a\)
+  a1~^\<
+
+  %% [1] p. 109 "la / Quando cœli movendi sunt, quando"
+  a2(^\mf g)^\>
+  a1\! ~
+  a4 r a4.^\p\( a8
+  %% K
+  a2 g4 a |
+  bes2.^\cresc bes4
+  bes2\) a4\( bes
+
+  %% [1] p. 110 "cœli movendi sunt et terra / Dum vene-"
+  c2. c4
+  c2^\< bes4 c
+  d2. d4\!
+  d2^\f e,=\) ~
+  e4 r a2^\fsempre\(
+  d2~ d4. d,=8
+
+  %% [1] p. 111 "ris judicare sæculum per ignem"
+  d2\) d4\( e
+  f1~
+  f4 f e d
+  b'2. d4
+  e,=1
+  %% L
+  d1\) ~
+
+  %% [1] p. 112
+  d2 r2
+}
+
+LiberaMeBaritoneSolo = \relative d {
+  \clef "bass"
+
+  %% [1] p. 92-97a
+  R1*2
   %% [1] p. 92 "Libera me domine"
-  d2 ~ d4. a'8
+  d2^\tweak #'X-offset #2 \solo ~ d4. a'8
   a2 g
   bes4. bes8 a2~
 
@@ -167,7 +219,7 @@ LiberaMeMainMelody = \relative d {
   f4 f^\p g a
   a1~^\<
   a2(\! g)^\>
-  a1\!
+  a1 <>\!
   r2 a4.^\p a8
   a2 g4 a |
 
@@ -179,26 +231,19 @@ LiberaMeMainMelody = \relative d {
   c2^\< bes4 c
   d2. d4\!
   d2^\f e,=
-  r2^\sempre a2
+  r2^\sempref a2              % just "sempre" in [1]
 
   %% [1] p. 96 "veneris judicare sæculum per ignem"
   d2~ d4. d,=8
   d2 d4 e
   f1~
   f4^\sempref f e d
-  b'2. d4
-  e,=1 d~
+  b'2.^\pocorall d4
+  e,=1
+  d1^\atempo ~                % [1]: "Tempo"
 
   %% [1] p. 97
   d2 r2
-}
-
-LiberaMeBaritoneSolo = \relative d {
-  \clef "bass"
-
-  %% [1] p. 92-97a
-  R1*2
-  \LiberaMeMainMelody
 
   %% [1] p. 97b-111 tacet
   %% R1*2
@@ -218,7 +263,8 @@ LiberaMeBaritoneSolo = \relative d {
 
   %% [1] p. 112 "Libera me domine / De morte æ-"
   R1
-  d=2~^\(^\p^\dolce d4. a'8
+  <>^\tweak #'extra-offset #'(-2.5 . -3) -\solo
+  d=2^\( ^\pdolce ~ d4. a'8
   a2 g
   f4. d8 d2~\)
   d2 d^\p
@@ -283,7 +329,7 @@ LiberaMeSopranos = \relative  a' {
   bes2. bes
 
   %% [1] p. 102 "et amara amara valde / Requiem æ-"
-  es2.~^\sempre es2 es4
+  es2.~^\ffsempre es2 es4     % just "sempre" in [1]
   des2. c2 c4
   c2 as4 f2( g4)
   as1.^\> |
@@ -294,7 +340,7 @@ LiberaMeSopranos = \relative  a' {
   %% [1] p. 103 "ternam / Dona eis domi-"
   bes1.
   a1.
-  c2.~^\cresc c2 c4
+  c2.~^\< c2 c4               % [1]: textual "cresc." instead of hairpin
   b2. b
   d2.~ d2 d4
 
@@ -346,7 +392,7 @@ LiberaMeAltos = \relative f' {
   f1
   %% D
   f2( e)
-  es2( d)
+  es2(^\tag #'aix \cresc d)
   c2^\< d
   e2^\f f4. f8
   g2 g4 g
@@ -363,7 +409,7 @@ LiberaMeAltos = \relative f' {
   %% [1] p. 100 "Dies illa / Dies iræ / Calamitatis"
   f2.~^\ff f2 f4
   f2. f
-  f2.~ f2 e4
+  f2.~ f2 g4
   a2. a
   a2.^\ffsempre a2 a4
   g2. fis2.
@@ -378,7 +424,7 @@ LiberaMeAltos = \relative f' {
   g2. g
 
   %% [1] p. 102 "et amara / amara valde / Requiem æ-"
-  g2.~ g2 g4
+  g2.^\tag #'aix \ffsempre ~ g2 g4
   f2. e2 e4
   f2 f4 f2.
   f1.^\> |
@@ -389,7 +435,7 @@ LiberaMeAltos = \relative f' {
   %% [1] p. 103 "ternam dona eis domi-"
   g1.
   g1.
-  a2.~ a2 a4
+  a2.^\tag #'aix \< ~ a2 a4
   a2. a
   b2.~ b2 b4
 
@@ -448,7 +494,7 @@ LiberaMeTenors = \relative e' {
   bes2( a)
   g1
   %% D
-  g2( fis)
+  g2(^\tag #'aix \cresc fis)
   g2^\< a
   bes2^\f c4. c8
   cis2 d4 e
@@ -481,7 +527,7 @@ LiberaMeTenors = \relative e' {
   bes2. bes
 
   %% [1] p. 102 "et amara / amara valde / Requiem æ-"
-  es2.~ es2 es4
+  es2.^\tag #'aix \ffsempre ~ es2 es4
   des2. c2 c4
   c2 c4 <bes des>2.
   c1.^\> |
@@ -492,7 +538,7 @@ LiberaMeTenors = \relative e' {
   %% [1] p. 103 "ternam / Dona eis domi-"
   d1.
   cis1.
-  e2.~ e2 e4
+  e2.^\tag #'aix \< ~ e2 e4
   dis2. dis
   fis2.~ fis2 fis4
 
@@ -548,7 +594,7 @@ LiberaMeBasses = \relative d' {
   d1
   c1
   %% D
-  c2( d)
+  c2(^\tag #'aix \cresc d)
   e2^\< fis
   g2^\f a4. a8
   bes2 bes4 bes
@@ -580,7 +626,7 @@ LiberaMeBasses = \relative d' {
   g2. g
 
   %% [1] p. 102 "et amara / amara valde / Requiem æ-"
-  bes2.~ bes2 bes4
+  bes2.^\tag #'aix \ffsempre ~ bes2 bes4
   bes2. bes2 bes4
   as2 f4 f2.
   f1.^\> |
@@ -591,7 +637,7 @@ LiberaMeBasses = \relative d' {
   %% [1] p. 103 "ternam / Dona eis Domi-"
   g1.
   a1.
-  a2.~ a2 a4
+  a2.^\tag #'aix \< ~ a2 a4
   b2. b
   b2.~ b2 b4
 
