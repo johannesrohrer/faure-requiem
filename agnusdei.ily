@@ -363,7 +363,7 @@ AgnusDeiTenors = \relative c' {
   a4~ a8\) r r4
   R2.
   %% B
-  bes4^\f^\> a\! r
+  bes!4^\f^\> a\! r
 
   %% [1] p. 75 "dei / Agnus dei qui tollis"
   fis4^\p  g\breathe gis
@@ -524,21 +524,30 @@ AgnusDeiBasses = \relative c {
   es2(^\tag #'aix -\< c'4)
   c2^\f bes4 |                % [1]: additional "sempre f"
   %% C
-  << { \voiceOne bes2 }
+  << { \voiceOne bes2^\tag #'aix \div }
      \context Voice = "bassesII" { \voiceTwo f2 } >> \oneVoice r4
 
   %% [1] p. 77-81m1 "dona eis requiem"
-  << { \voiceOne a4 a e }
-     \context Voice = "bassesII" { \voiceTwo e4 e e } >>
-  \oneVoice f4^\tag #'aix -\> f g^\tag #'aix -\!
-  f4~ f8 r r4 |
+  <<
+    {
+      \voiceOne a4 a e |
+      f4^\tag #'aix -\> f g^\tag #'aix -\! |
+      f4~ f8
+    }
+    \context Voice = "bassesII" {
+      \voiceTwo e4 e e |
+      f4 f g |
+      f4~ f8
+    }
+  >> \oneVoice r8 r4 |
+
   %% R2.*6
   %% R2.*10 % D
   R2.*16 |
 
   %% [1] p. 81m2 "Lux æterna luceat eis"
   %% E
-  <>^\div
+  %%<>^\div   % additional "div." mark from [1] is redundant here
   <<
     { \voiceOne as2^\pp g4 | ges2 ges4 | ges ges f | fes2 fes4 }
     \context Voice = "bassesII" {
