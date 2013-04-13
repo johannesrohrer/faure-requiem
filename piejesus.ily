@@ -105,7 +105,7 @@ PieJesusSopranoSolo = \relative bes' {
   %% [1] p. 64 "requiem / dona eis Requiem"
   a4. bes8 c2
   a8(^\> c) a( g) a4 f
-  f4.^\p es8 f2
+  f4.^\p e8 f2      % [1] has es instead of e, probably a "typo"
   R1 |
 
   %% [1] p. 65 "dona eis domine / dona eis requiem"
