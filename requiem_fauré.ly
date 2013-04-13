@@ -180,7 +180,6 @@ semprep = \commentedDynamic "sempre" "p" "" #-17.0
 sempref = \commentedDynamic "sempre" "f" "" #-16.5
 
 crescmolto =
-%% TODO: "molto" should appear at around half the spanner length
 #(make-music 'CrescendoEvent
              'span-direction START
              'span-type 'text
@@ -209,6 +208,7 @@ sempre = -\markup { \italic "sempre" }
 sempredolce = -\markup { \italic "sempre dolce" }
 solo = -\markup { \right-align "Solo" }
 sostenuto = -\markup { \italic "sostenuto" }
+unisono = -\markup { \right-align "unis." }
 unpocopiu = -\markup { \italic "un poco più" }
 
 labelSopranos = "S"

@@ -390,6 +390,7 @@ IntroitEtKyrieTenors =  \relative d' {
     { \voiceOne d4 es es~ | es8 }
     \context Voice = "tenorsII" { \voiceTwo bes4 bes bes~ | bes8 }
   >> \oneVoice r8 r4 r bes4^\>   % [1] uses textual "dim." only
+                           ^\tag #'aix -\tweak #'X-offset #-1 -\unisono
   c4 c~ c8^\tag #'aix -\p r r4
   R1 |
 
@@ -443,15 +444,28 @@ IntroitEtKyrieTenors =  \relative d' {
 
   %% [1] p. 13 "exaudi / exaudi orationem meam"
   %% F
-  <f'=' c>4^\tag #'aix -\ff <f c>2 <f c>4^\tag #'aix -\>\breathe
-  d4^\tag #'aix -\p d2 <f d>4
-  <f c>4^\tag #'aix -\ff <f c>8 <f c> <f c>4 <f c>^\tag #'aix -\>
-  cis2^\tag #'aix -\p cis
+  %% [1]: divisi notated as chords
+  <<
+    {
+      \voiceOne
+      f'='4^\tag #'aix -\ff ^\tag #'aix \div
+        f2 f4^\tag #'aix -\> \breathe
+      d4^\tag #'aix -\p d2 f4
+      f4^\tag #'aix -\ff f8 f f4 f^\tag #'aix -\>
+      cis2^\tag #'aix -\p cis
+    }
+    \context Voice = "tenorsII" {
+      \voiceTwo
+      c='4 c2 c4 | d4 d2 d4 | c4 c8 c c4 c | cis2 cis
+    }
+  >> \oneVoice
 
   %% [1] p. 14 "ad te omnis caro veniet"
-  r4 <fis=' cis>2.^\tag #'aix -\ffsempre
-  <eis cis>4\breathe cis2 cis4
-  des2. des4
+  r4 <<
+    { \voiceOne fis='2.^\tag #'aix -\ffsempre | eis4\breathe cis2 cis4 }
+    \context Voice = "tenorsII" { \voiceTwo cis='2. | cis4 cis2 cis4 }
+  >> \oneVoice |
+  des2.^\tag #'aix \tweak #'X-offset #2 \unisono des4
   des4. des8 des2
 
   %% [1] p. 15 "omnis caro veniet"
@@ -544,6 +558,7 @@ IntroitEtKyrieBasses =  \relative f {
     { \voiceOne bes=4 bes bes~ | bes8 }
     \context Voice = "tenorsII" { \voiceTwo f4 es es~ | es8 }
   >> \oneVoice r8 r4 r g4^\>  % [1] has both "dim." and hairpin
+                         ^\tag #'aix -\tweak #'X-offset #-1 -\unisono
   a4 a~ a8^\p r r4
   R1 |
 
@@ -573,20 +588,32 @@ IntroitEtKyrieBasses =  \relative f {
   %% [1] p. 14 "ad te omnis caro veniet"
   r4 a2.^\tag #'aix -\ffsempre
   a4\breathe a2 a4
-  f2. <bes f>4
-  <a f>4. <a f>8 <a f>2
+  %% divisi written as chords in [1]
+  <<
+    { \voiceOne f2. bes4^\div | a4. a8 a2 }
+    \context Voice = "bassesII" { \voiceTwo f2. f4 | f4. f8 f2 }
+  >> \oneVoice
 
   %% [1] p. 15 "omnis caro veniet"
-  r4 f2^\tag #'aix -\> <bes f>4
-  <a f>2.^\tag #'aix -\p^\tag #'aix -\> f4\breathe
-  <f a,>2.^\tag #'aix -\pp <f a,>4 |
-  %% G
-  d4 r4 r2
+  r4 <<
+    {
+      \voiceOne
+      f=2^\tag #'aix -\> bes4
+      a2.^\tag #'aix -\p^\tag #'aix -\> f4\breathe
+      f2.^\tag #'aix -\pp f4 |
+      %% G
+      d4
+    }
+    \context Voice = "bassesII" {
+      \voiceTwo
+      f=2 f4 | f2. f4 | a,2. a4 | d4
+    }
+  >>  \oneVoice r4 r2
 
   %% [1] p. 16-17 "Kyrie eleison / eleison / e-"
   R1*5
   %% H
-  d4 f a a
+  d=4^\tag #'aix \unisono f a a
   a4. a8 f4\breathe c'
   c4. c8 f,4 g
 
