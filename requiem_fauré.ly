@@ -32,33 +32,57 @@
    (markup #:put-adjacent Y dir arg #:mm-feed amount)))
 
 
-copyrightText = \markup \put-mm #UP #4 \column {
-  \line { "Edition Aix Vocalis © 2013 Johannes Rohrer." }
-  \line { "Diese Fassung darf verwendet werden unter den Bedingungen der Lizenz " }
-  \line {
-    \italic "Creative Commons Namensnennung – Weitergabe unter gleichen Bedingungen 3.0 Unported."
-  }
-  \with-url #"http://creativecommons.org/licenses/by-sa/3.0/deed.de"
-  \line { \typewriter "http://creativecommons.org/licenses/by-sa/3.0/deed.de" }
-  \line {
-    "This edition may be used according to the terms of the "
-    \italic "Creative Commons Attribution—ShareAlike 3.0 Unported"
-    " License."
-  }
-  \with-url #"http://creativecommons.org/licenses/by-sa/3.0/"
-  \line { \typewriter "http://creativecommons.org/licenses/by-sa/3.0/" } 
+copyrightTextShort = \markup \put-mm #UP #4 \line {
+  "Edition Aix Vocalis © 2013 Johannes Rohrer."
 }
 
-taglineText = \markup {
-  \with-url #"http://lilypond.org/"
-  \line {
-    "Music engraving by LilyPond"
-    $(lilypond-version)
-    "–"
-    \typewriter "www.lilypond.org"
+copyrightTextLong = \markup {
+  \override #'(baseline-skip . 2.5)
+  \column {
+    \copyrightTextShort
+    \vspace #0.3
+    \justify {
+      Die Komposition ist gemeinfrei, und diese Fassung basiert, bis
+      auf den Klavierauszug, auf einer gemeinfreien Vorlage. Soweit
+      für dieses Dokument und seine Quelldateien dennoch Urheberrechte
+      bestehen, wird hiermit die Verwendung unter den Bedingungen der
+      Lizenz \italic { Creative Commons Namensnennung – Weitergabe
+      unter gleichen Bedingungen 3.0 Unported } gestattet.
+    }
+    \null
+    \with-url #"http://creativecommons.org/licenses/by-sa/3.0/deed.de"
+    \line {
+      \typewriter
+      "http://creativecommons.org/licenses/by-sa/3.0/deed.de"
+    }
+    \vspace #0.3
+    \justify {
+      The composition is in the Public Domain, and this edition is
+      based, except for the piano reduction, on a Public Domain
+      reference. Inasmuch as copyrights apply anyway for this document
+      and its source files, permission is hereby granted to use them
+      under the terms of the \italic { Creative Commons
+      Attribution—ShareAlike 3.0 Unported } license.
+    }
+    \null
+    \with-url #"http://creativecommons.org/licenses/by-sa/3.0/"
+    \line {
+      \typewriter "http://creativecommons.org/licenses/by-sa/3.0/"
+    }
   }
-  " · "
-  "score revision: " \revision-string
+}
+
+taglineText = \markup \column {
+  \with-url #"http://lilypond.org"
+  \line {
+    #(format #f "Music engraving by LilyPond ~a—www.lilypond.org"
+      (lilypond-version))
+  }
+  \line { "Score revision: " \revision-string }
+}
+
+AixVocalis = \markup {
+  \override #'(font-name . "Linux Biolinum O") "AIX VOCALIS"
 }
 
 \header {
@@ -66,11 +90,25 @@ taglineText = \markup {
   composer = "Gabriel Fauré (1845–1924)"
   opus = "op. 48"
   dateComposed = "1887"
-  copyright = \copyrightText
+  copyright = \copyrightTextShort
+  copyrightFull = \copyrightTextLong
   tagline = \taglineText
 }
 
 #(set-global-staff-size 16)
+
+
+%% In newer LilyPond versions, these \on-the-fly helper procedures are
+%% already defined in ly/titling-init.ly
+#(define (part-first-page? layout props)
+  (= (chain-assoc-get 'page:page-number props -1)
+     (ly:output-def-lookup layout 'first-page-number)))
+
+#(define (not-part-first-page layout props arg)
+  (if (not (part-first-page? layout props))
+      (interpret-markup layout props arg)
+      empty-stencil))
+
 
 \paper {
   papersize = "a4"
@@ -81,11 +119,13 @@ taglineText = \markup {
   inner-margin = 10\mm
   binding-offset = 2\mm
   indent = 7\mm
+
   markup-system-spacing #'padding = #2  % default 0.5
   score-markup-spacing #'padding = #5   % default 0.5
   system-system-spacing #'padding = #3  % default 1
+
+  %% override default from ly/titling-init.ly
   bookTitleMarkup = \markup {
-    %% overrides default from ly/titling-init.ly
     \override #'(baseline-skip . 3.5)
     \column {
       \column {
@@ -111,13 +151,41 @@ taglineText = \markup {
       }
     }
   }
+
+  %% override default from ly/titling-init.ly
   scoreTitleMarkup = \markup \column {
-    %% overrides default from ly/titling-init.ly
     \put-mm #DOWN #2 \line {
       \fontsize #3 \bold \fromproperty #'header:piece
     }
     \put-mm #DOWN #3 \line {
       \fromproperty #'header:pieceIntroText
+    }
+  }
+
+  %% override header defaults from ly/titling-init.ly
+  oddHeaderMarkup = \markup
+  \fill-line {
+    %% force the header to take some space, otherwise the
+    %% page layout becomes a complete mess.
+    " "
+    \on-the-fly #print-page-number-check-first
+      \on-the-fly #not-part-first-page \fromproperty #'page:page-number-string
+  }
+  evenHeaderMarkup = \markup
+  \fill-line {
+    \on-the-fly #print-page-number-check-first \fromproperty #'page:page-number-string
+    " "
+  }
+
+  %% override footer defaults from ly/titling-init.ly, removing the
+  %% tagline on the last page (we include it within the titling
+  %% section)
+  oddFooterMarkup = \markup {
+    \column {
+      \fill-line {
+        %% Copyright header field only on first page.
+        \on-the-fly #part-first-page \fromproperty #'header:copyright
+      }
     }
   }
 }
@@ -239,6 +307,7 @@ switchToBassesAll = {
 }
 
 
+\include "titling-section.ily"
 \include "introitetkyrie.ily"
 \include "offertoire.ily"
 \include "sanctus.ily"
@@ -248,11 +317,22 @@ switchToBassesAll = {
 \include "inparadisum.ily"
 
 \book {
-  \score { \IntroitEtKyrie }
-  \score { \Offertoire }
-  \score { \Sanctus }
-  \score { \PieJesus }
-  \score { \AgnusDei }
-  \score { \LiberaMe }
-  \score { \InParadisum }
+  \header { instrument = "Gesangspartitur · Vocal score" }
+  \bookpart { \titlingBookpart }
+  \bookpart {
+    \tocItem \markup "I. Introït et Kyrie"
+    \score { \IntroitEtKyrie }
+    \tocItem \markup "II. Offertoire"
+    \score { \Offertoire }
+    \tocItem \markup "III. Sanctus"
+    \score { \Sanctus }
+    \tocItem \markup "IV. Pie Jesus"
+    \score { \PieJesus }
+    \tocItem \markup "V. Agnus Dei"
+    \score { \AgnusDei }
+    \tocItem \markup "VI. Libera me"
+    \score { \LiberaMe }
+    \tocItem \markup "VII. In paradisum"
+    \score { \InParadisum }
+  }
 }
