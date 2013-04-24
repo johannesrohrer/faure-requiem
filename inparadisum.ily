@@ -108,9 +108,9 @@ InParadisumSopranos = \relative fis' {
   %%  [1] p. 116 "angeli in tuo ad-"
   d2~ d8 a
   a2.~\)
-  a4 r d\(
+  a4 r d^\semprep \(
   %% A
-  b4^\semprep e=''4. e8
+  b4 e=''4. e8
 
   %% [1] p. 117 "ventu suscipiant te martyres"
   fis4 d4.\)\breathe d8\(

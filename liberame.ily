@@ -231,7 +231,7 @@ LiberaMeBaritoneSolo = \relative d {
   c2^\< bes4 c
   d2. d4\!
   d2^\f e,=
-  r2^\sempref a2              % just "sempre" in [1]
+  r2 a2^\sempref              % just "sempre" in [1]
 
   %% [1] p. 96 "veneris judicare sæculum per ignem"
   d2~ d4. d,=8
