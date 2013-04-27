@@ -75,10 +75,19 @@ copyrightTextLong = \markup {
 taglineText = \markup \column {
   \with-url #"http://lilypond.org"
   \line {
-    #(format #f "Music engraving by LilyPond ~a—www.lilypond.org"
-      (lilypond-version))
+    "Music engraving by LilyPond "
+    #(lilypond-version)
+    "—"
+    \typewriter "www.lilypond.org"
   }
-  \line { "Score revision: " \revision-string }
+  \line {
+    "Source files available on GitHub: "
+    \with-url #"https://github.com/johannesrohrer/faure-requiem"
+    \typewriter "https://github.com/johannesrohrer/faure-requiem"
+    " · "
+    "revision: "
+    \revision-string
+  }
 }
 
 AixVocalis = \markup {
