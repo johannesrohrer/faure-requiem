@@ -793,184 +793,678 @@ IntroitEtKyrieLyricsBasses = \lyricmode {
 }
 
 
+IntroitEtKyriePianoRedDyn = {
+  %% [1] p. 1
+  s1\ff\>
+  s1\p
+  s2. s4\<
+  s4\ff\> s2.
+
+  %% [1] p. 2
+  s1\p
+  s2. s4\<
+  %% A
+  s1\ff
+  s1\moltosostenuto
+
+  %% [1] p. 3
+  s1
+  s2 s4\> s4
+  s4\p s2.
+  s4\< s4 s2\sff\>
+
+  %% [1] p. 4
+  %% B
+  s1\psempre
+  s1*4
+
+
+  %% Andante moderato, [1] p. 5
+  s2\p\dolceespressivo s4\< s4
+  s4\> s4 s2\!
+  s1*2
+
+  %% [1] p. 6
+  s1*2
+  %% C
+  s4\< s2.
+  s1\f
+
+  %% [1] p. 7
+  s1
+  s4\> s2.
+  s4\p s s\< s
+  s4\> s s2\!
+
+  %% [1] p. 8
+  s1*2
+  s1\<
+  %% D
+  s1\f
+
+  %% [1] p. 9
+  s1
+  s1
+  s4 s2.\>
+  s1\p
+
+  %% [1] p. 10
+  s4 s2.\f
+  s4 s2.\>
+  %% E
+  s4\! s2.\>
+  s4\! s2.
+
+  %% [1] p. 11
+  s1\psempre
+  s1*3
+
+  %% [1] p. 12
+  s1*3
+  s4 s2.\<
+
+  %% [1] p. 13
+  %% F
+  s2.\f s4\>
+  s2.\p s4\<
+  s4\f s2 s4\>
+  s2.\p s4\<
+
+  %% [1] p. 14
+  s1\ffsempre
+  s1*2
+  s1\>
+
+  %% [1] p. 15
+  s1
+  s1\p
+  s1\pp
+  %% G
+  s4 s2.\<
+
+  %% [1] p. 16
+  s1\!
+  s1*3
+
+  %% [1] p. 17
+  s1
+  %% H
+  s1\<
+  s1\f
+  s1\>
+
+  %% [1] p. 18
+  s2\p s2\<
+  s2.\ff s4\>
+  s2.\p s4\<
+  s2.\ff s4\>
+
+  %% [1] p. 19
+  s1\p
+  %% J
+  s1\p
+  s1*2
+
+  %% [1] p. 20
+  s1*2
+  s1\<
+  s4\mf\> s2\! s4
+  s1
+
+  %% [1] p. 21
+  s1
+  s1\<
+  %% K
+  s4\mf\> s2\! s4
+  s1\psempre
+
+  %% [1] p. 22
+  s1*5
+}
+
 IntroitEtKyriePianoRedMD = \relative d' {
   \clef "treble"
 
   %% [1] p. 1
-  d1
-  R1*3
+  d1-> ~
+  d1 ~
+  d2. d4
+  c1 ~ |
 
   %% [1] p. 2
-  R1*2
+  c1 ~
+  c2. c4
   %% A
-  R1*2
+  bes1-> ~
+  bes4 bes a f' |
 
   %% [1] p. 3
-  R1*4
+  d4 bes2 a4
+  g4 es' bes g ~
+  g4 g f c'
+  a4 \parenthesize f es'2-> ~
 
   %% [1] p. 4
   %% B
-  R1*5
+  es='1 |
+  des1 |
+  c1 |
+  cis2 d |
+  a2\fermata r2\fermata
 
+  %% Andante moderato, [1] p. 5, 6
+  \repeat unfold 3 <<
+    {
+      \voiceOne
+      d'=''2 a |
+      c2 a |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      f='4 g a f~ |
+      f4 g a2 |
+    }
+  >>
 
-  %% [1] p. 5
-  R1*4
-
-  %% [1] p. 6
-  R1*2
   %% C
-  R1*2
+  <<
+    {
+      \voiceOne
+      f='4 a d f |
+      c2 c8 g bes4 |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      f4 a f4. a8 |
+      c=''8 a f c d4 e4 |
+    }
+  >>
 
-  %% [1] p. 7
-  R1*4
-
-  %% [1] p. 8
-  R1*3
-  %% D
-  R1*1
+  %% [1] p. 7, 8
+  <<
+    {
+      \voiceOne
+      a='2 a4 d |
+      d2 <a cis,> |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      s2 d,='4. e8 |
+      f4 <g d> a g
+    }
+  >>
+  \repeat unfold 2 <<
+    {
+      \voiceOne
+      d'=''2 a |
+      c2 a |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      f='4 g a f~ |
+      f4 g a2 |
+    }
+  >>
+  <<
+    {
+     \voiceOne
+     f='4 a d f |
+     %% D
+     e2 ~ e4 d8 f |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      a,,=4. d8 f4. a8 |
+      %% D
+      c8 b gis e f g a4 |
+    }
+  >>
 
   %% [1] p. 9
-  R1*4
+  <<
+    {
+      \voiceOne
+      e'=''4. d8 c4 c8 d |
+      c2. b8 a |
+      c2. bes4 |
+      a2. gis4 |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      c=''8 b gis e f g a b |
+      a8 g e c g' fis dis b |
+      a'='8 g e c g' f d bes
+      f'='8 e c d b c d e |
+    }
+  >> \oneVoice
 
   %% [1] p. 10
-  R1*2
+  <c=' a'>4 <c e c'> <b d e b'> <a c e a> |
+  r4 <bes cis e bes'> <a c f a> <g d' f g> |
   %% E
-  R1*2
+  r4 <<
+    {
+      \voiceOne
+      bes'='4\legato a g |
+      bes4 a g f ~ |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      s2 cis='4 ~ |
+      cis4 d2 es4 |
+    }
+  >>
 
   %% [1] p. 11
-  R1*4
+  <<
+    {
+      \voiceOne
+      f='4\dolce bes a bes |
+      es4 d c d |
+      bes4 a g2 |
+      f1 ~ |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      bes,=4. c8 d4. es8 |
+      f4. fis8 g4. a8 |
+      d,='4. f8 bes,4. es8 |
+      es4. d8 d4. c8 |
+    }
+  >>
 
   %% [1] p. 12
-  R1*4
+  <<
+    {
+      \voiceOne
+      f='4 bes a bes |
+      es4 d c d |
+      bes4 c8 d d4. cis8 |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      bes,=4. c8 d4. es8 |
+      f4. fis8 g4. a8 |
+      d,4. g8 f4 e
+    }
+  >> \oneVoice
+  <d=' f d'>4 q2 q4
 
   %% [1] p. 13
   %% F
-  R1*4
+  <f=' c f'>4 q2 <f a c>4 |
+  <f a>2 ~ <f a>4 <f d'>4 |
+  <f c' f>4 q2 <f a c>4
+  <f a>2. <f a cis>4
 
   %% [1] p. 14
-  R1*4
+  <fis cis' fis>4 q2 <fis a cis>4 |
+  <eis a>4 q2 q4 |
+  <f bes>2. <des f>4 |
+  <cis f a>4 q2 q4 |
 
-  %% [1] p. 15
-  R1*3
+  %% [1] p. 15-17
+  << { \voiceOne bes'='2. f4 }
+     \context Voice = "mdb" { \voiceTwo <des=' f>1 } >> \oneVoice |
+  <c f a>4 q2 q4 |
+  <a cis f>4 q2 <cis f a>4 |
   %% G
-  R1*1
+  \repeat unfold 3 <<
+    {
+      \voiceOne
+      d'=''2 a |
+      c2 a |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      f='4 g a f~ |
+      f4 g a2 |
+    }
+  >>
 
-  %% [1] p. 16
-  R1*4
-
-  %% [1] p. 17
-  R1*1
   %% H
-  R1*3
+  <<
+    {
+      \voiceOne
+      f='4 a d f |
+      c2~ c8 f, bes4 |
+      a2~ a4 d4 |
+    }
+    \context Voice = "mdb" {
+      \voiceTwo
+      a,=4. d8 f4. a8 |
+      c8 a f c d4 <c e> ~ |
+      e8 c ~ <a c>
+          \change Staff = "m.s." \voiceThree
+              e
+          \change Staff = "m.d." \voiceTwo
+              d'='4. e8 |
+    }
+  >>
 
   %% [1] p. 18
-  R1*4
+  <f=' d'>4 <d g> <c a'>2 |
+  <es fis c' es>4 q2 q4 |
+  <g a>4 q2 q4 |
+  <es fis c' es>4 q2 q4 |
 
   %% [1] p. 19
-  R1*1
+  <g a>4 q2 q4 |
   %% J
-  R1*3
+  <bes,= f' bes>4 q2 <c f a>4 |
+  <c e gis> q2 <c e>4 |
+  <f, c' f>4 q2 <g cis e>4 |
 
-  %% [1] p. 20
-  R1*5
-
-  %% [1] p. 21
-  R1*2
-  %% K
-  R1*2
-
-  %% [1] p. 22
-  R1*5
+  %% [1] p. 20-22
+  <<
+    \context Voice = "mdi" {
+      %% [1] p. 20
+      \change Staff = "m.s." \voiceThree
+      f4. d8 es4. e8 |
+      f4. fis8 g4. gis8 |
+      \change Staff = "m.d." \voiceTwo
+      a4. bes8 c4. cis8 |
+      es4. d8 d4. cis8 |
+      \change Staff = "m.s." \voiceThree
+      d,=4. d8 es4. e8 |
+      %% [1] p. 21
+      f4. fis8 g4. gis8 |
+      \change Staff = "m.d." \voiceTwo
+      a4. bes8 c4. cis8 |
+      %% K
+      es4. d8 d4. c8 |
+      c4. bes8
+          \change Staff = "m.s." \voiceThree
+              fis=4. g8 |
+      %% [1] p. 22
+      \change Staff = "m.d." \voiceTwo
+      bes4.
+          \change Staff = "m.s." \voiceThree
+              a8 e4. f8 |
+      a4. g8 e4. f8 |
+    }
+    {
+      \oneVoice
+      %% [1] p. 20
+      d'='4. s8 s2 |
+      r4 d es e |
+      \voiceOne
+      f2. e4 |
+      g4 f e2 |
+      \oneVoice
+      d4. s8 s2
+      %% [1] p. 21
+      r4 d es e |
+      \voiceOne
+      f2. e4 |
+      g4 f es2 |
+      d1 ~ |
+      %% [1] p. 22
+      d1 ~ |
+      d1 ~ |
+      d1 ~ |
+      d1 ~ |
+      d1\fermata
+    }
+  >>
 }
 
 IntroitEtKyriePianoRedMS = \relative d, {
   \clef "bass"
 
   %% [1] p. 1
-  <d d'>1
-  R1*3
+  <d d'>1-> ~ |
+  <d d'>1 ~ |
+  <d d'>2. <d d'>4 |
+  <c c'>1-> ~ |
 
   %% [1] p. 2
-  R1*2
+  <c c'>1 ~ |
+  <c c'>2. <c c'>4 |
   %% A
-  R1*2
+  <bes bes'>1-> ~ |
+  <bes bes'>4 <bes bes'> <a a'> <f' f'> |
 
   %% [1] p. 3
-  R1*4
+  <d d'>4 <bes bes'>2 <a a'>4 |
+  <g g'>4 <es' es'> <bes bes'> <g g'> ~ |
+  <g g'>4 <g g'> <f f'> <c' c'> |
+  <a a'>4 <f' f'> <es es'>2-> ~ |
 
   %% [1] p. 4
   %% B
-  R1*5
+  <es es'>1 |
+  <des des'>1 |
+  <c c'>1 |
+  <cis cis'>2( <d d'>) |
+  <a a'>2\fermata r2\fermata
 
+  %% Andante moderato, [1] p. 5, 6
+  \repeat unfold 3 <<
+    \context Voice = "msa" {
+      \voiceOne
+      a''=2~ a8 d
+         \change Staff = "m.d." \voiceThree
+            f4 ~ |
+      f2 ~ f8 e
+         \change Staff = "m.s." \voiceOne
+            a,4 ~ |
+    }
+    {
+      \voiceTwo
+      d,=4 e f d |
+      a4 bes c cis |
+    }
+  >>
 
-  %% [1] p. 5
-  R1*4
-
-  %% [1] p. 6
-  R1*2
   %% C
-  R1*2
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      a'=4. d8 a2 |
+    }
+    {
+      \voiceTwo
+      d,=4 f a, d |
+    }
+  >> \oneVoice
+  <a' c>4 a, bes c |
 
-  %% [1] p. 7
-  R1*4
-
-  %% [1] p. 8
-  R1*3
+  %% [1] p. 7, 8
+  <<
+    \context Voice = "msa" {
+      \change Staff = "m.d." \voiceTwo
+      e'='8 c a
+          \change Staff = "m.s." \voiceOne
+              e f4 g |
+      a4 <f b> <e a>2 |
+    }
+    {
+      \voiceTwo
+      f=4 f, bes2 |
+      a1
+    }
+  >>
+  \repeat unfold 2 <<
+    \context Voice = "msa" {
+      \voiceOne
+      a'=2~ a8 d
+         \change Staff = "m.d." \voiceThree
+            f4 ~ |
+      f2 ~ f8 e
+         \change Staff = "m.s." \voiceOne
+            a,4 ~ |
+    }
+    {
+      \voiceTwo
+      d,=4 e f d |
+      a4 bes c cis |
+    }
+  >> \oneVoice
+  d=4 f a <d, d'> |
   %% D
-  R1*1
+  <gis= e'>4 b <a c> <c f> |
 
   %% [1] p. 9
-  R1*4
+  <gis= e'>4 b a <f c'> ~ |
+  <e c'>4 g <dis a'> fis |
+  <e= c'>4 g d f |
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      a=2 e
+    }
+    {
+      \voiceTwo
+      c=4 d e e,
+    }
+  >> \oneVoice
 
   %% [1] p. 10
-  R1*2
+  a=,4 <fis, fis'>4 <gis gis'> <a a'> |
+  r4 <g g'> <a a'> <bes bes'> |
   %% E
-  R1*2
+  r2 r4 <<
+    \context Voice = "msa" {
+      \voiceOne
+      e'=4 ~ |
+      e4 f g a |
+    }
+    {
+      \voiceTwo
+      a,=,4 |
+      a2 b4 c |
+    }
+  >>
 
   %% [1] p. 11
-  R1*4
+  \oneVoice
+  d=4 es f g |
+  a4 bes e, fis |
+  g4 d es c |
+  <a f'>4 g'= <f as> <es a> |
 
   %% [1] p. 12
-  R1*4
+  d=4 es f g |
+  a4 bes e, fis |
+  g4 e a a, |
+  d=4 <d a'>2 <d a'>4 |
+
 
   %% [1] p. 13
   %% F
-  R1*4
+  <a'= c>4 q2 q4 |
+  <a d>2 ~ q4 q |
+  <a c>4 q2 q4 |
+  <a cis>2. q4 |
 
   %% [1] p. 14
-  R1*4
+  <a= cis>4 q2 q4 |
+  <a cis>4 q2 q4 |
+  <f des'>2. ~ <f bes>4
+  <f a>4 q2 q4
 
-  %% [1] p. 15
-  R1*3
+  %% [1] p. 15-17
+  <f= bes>1 |
+  <f a>4 q2 q4 |
+  <a, f'>4 q2 a'4 |
   %% G
-  R1*1
+  \repeat unfold 3 <<
+    \context Voice = "msa" {
+      \voiceOne
+      a=2~ a8 d
+         \change Staff = "m.d." \voiceThree
+            f4 ~ |
+      f2 ~ f8 e
+         \change Staff = "m.s." \voiceOne
+            a,4 ~ |
+    }
+    {
+      \voiceTwo
+      d,=4 e f d |
+      a4 bes c cis |
+    }
+  >>
 
-  %% [1] p. 16
-  R1*4
-
-  %% [1] p. 17
-  R1*1
   %% H
-  R1*3
+  d=4 f a d |
+  <a f'>4 a, <bes f'> c |
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      s2 f=4 g |
+    }
+    {
+      \voiceTwo
+      f=4 f, bes2 |
+    }
+  >>
 
   %% [1] p. 18
-  R1*4
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      a'=4 <f b> <e a>2 |
+    }
+    {
+      \voiceTwo
+      a,=,1
+    }
+  >> \oneVoice
+  <a'= c>4 q2 q4 |
+  <a cis>4 q2 q4 |
+  <a c>4 q2 q4
 
   %% [1] p. 19
-  R1*1
+  <a cis>4 q2 q4 |
   %% J
-  R1*3
+  <d,,=, d'>4.( <e e'>8) <f f'>4.( a8) |
+  <c,=, c'>4.( <d d'>8) <e e'>4.( gis8) |
+  a1
 
   %% [1] p. 20
-  R1*5
+  \voiceTwo
+  <d,=, d'>1 ~ |
+  <d d'>1 ~ |
+  <d d'>4 <f f'> <a a'> a ~ |
+  a4 bes g a |
+  <d,=, d'>1 ~ |
 
   %% [1] p. 21
-  R1*2
+  <d d'>1 ~ |
+  <d d'>4 <f f'> <a a'> a ~ |
   %% K
-  R1*2
+  a4 bes g a |
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      d=1 ~ |
+    }
+    {
+      \voiceTwo
+      fis,=,4 g a bes |
+    }
+  >>
 
   %% [1] p. 22
-  R1*5
+  <<
+    \context Voice = "msa" {
+      \voiceOne
+      d=1 ~ |
+      d1 ~ |
+      d1 |
+      d2 <f a> |
+      <f a>1\fermata
+    }
+    {
+      \voiceTwo
+      e,=,4 f fis a |
+      dis,4 e g gis |
+      bes4. a8 e4. f8 |
+      d2 d |
+      d1\fermata
+    }
+  >>
 }
 
 
@@ -1020,6 +1514,7 @@ IntroitEtKyriePianoReduction =  <<
       \IntroitEtKyrieCommon
       \IntroitEtKyriePianoRedMD
     >>
+    \new Dynamics \IntroitEtKyriePianoRedDyn
     \new Staff = "m.s." <<
       \IntroitEtKyrieCommon
       \IntroitEtKyriePianoRedMS
