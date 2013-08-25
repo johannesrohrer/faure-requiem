@@ -821,52 +821,269 @@ LiberaMeLyricsBasses = \lyricmode {
 }
 
 
-LiberaMe = \score {
-  <<
-    \new Staff = "BaritoneSolo" \with {
-      vocalName = \labelBaritoneSolo
-      shortVocalName = \labelBaritoneSoloShort
+LiberaMePianoRedMD = \relative d' {
+  \clef "treble"
+
+  %% [1] p. 92
+  R1*5
+
+  %% [1] p. 93
+  R1*5
+  %% A
+  R1*2
+
+  %% [1] p. 94
+  R1*7
+
+  %% [1] p. 95
+  %% B
+  R1*7
+
+  %% [1] p. 96
+  R1*7
+
+  %% [1] p. 97
+  R1*3
+  %% C
+  R1*4
+
+  %% [1] p. 98
+  R1*3
+  %% D
+  R1*4
+
+  %% [1] p. 99
+  R1*5
+  R1.*1
+
+  %% [1] p. 100
+  R1.*6
+
+  %% [1] p. 101
+  R1.*2
+  %% E
+  R1.*4
+
+  %% [1] p. 102
+  R1.*4
+  %% F
+  R1.*2
+
+  %% [1] p. 103
+  R1.*5
+
+  %% [1] p. 104
+  R1.*4
+  %% G
+  R1.*1
+
+  %% [1] p. 105
+  R1.*2
+
+  %% H
+  R1*3
+
+  %% [1] p. 106
+  R1*5
+
+  %% [1] p. 107
+  R1*7
+
+  %% [1] p. 108
+  %% J
+  R1*6
+
+  %% [1] p. 109
+  R1*3
+  %% K
+  R1*3
+
+  %% [1] p. 110
+  R1*6
+
+  %% [1] p. 111
+  R1*5
+  %% L
+  R1*1
+
+  %% [1] p. 112
+  R1*7
+
+  %% [1] p. 113
+  R1*7
+}
+
+
+LiberaMePianoRedMS = \relative d, {
+  \clef "bass"
+
+  %% [1] p. 92
+  R1*5
+
+  %% [1] p. 93
+  R1*5
+  %% A
+  R1*2
+
+  %% [1] p. 94
+  R1*7
+
+  %% [1] p. 95
+  %% B
+  R1*7
+
+  %% [1] p. 96
+  R1*7
+
+  %% [1] p. 97
+  R1*3
+  %% C
+  R1*4
+
+  %% [1] p. 98
+  R1*3
+  %% D
+  R1*4
+
+  %% [1] p. 99
+  R1*5
+  R1.*1
+
+  %% [1] p. 100
+  R1.*6
+
+  %% [1] p. 101
+  R1.*2
+  %% E
+  R1.*4
+
+  %% [1] p. 102
+  R1.*4
+  %% F
+  R1.*2
+
+  %% [1] p. 103
+  R1.*5
+
+  %% [1] p. 104
+  R1.*4
+  %% G
+  R1.*1
+
+  %% [1] p. 105
+  R1.*2
+
+  %% H
+  R1*3
+
+  %% [1] p. 106
+  R1*5
+
+  %% [1] p. 107
+  R1*7
+
+  %% [1] p. 108
+  %% J
+  R1*6
+
+  %% [1] p. 109
+  R1*3
+  %% K
+  R1*3
+
+  %% [1] p. 110
+  R1*6
+
+  %% [1] p. 111
+  R1*5
+  %% L
+  R1*1
+
+  %% [1] p. 112
+  R1*7
+
+  %% [1] p. 113
+  R1*7
+}
+
+
+LiberaMeVocals = <<
+  \new Staff = "BaritoneSolo" \with {
+    vocalName = \labelBaritoneSolo
+    shortVocalName = \labelBaritoneSoloShort
+  } <<
+    \LiberaMeGlobal
+    \LiberaMeCommon
+    \new Voice = "baritonesolo" \LiberaMeBaritoneSolo
+    \new Lyrics \lyricsto "baritonesolo" \LiberaMeLyricsBaritoneSolo
+  >>
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
     } <<
       \LiberaMeGlobal
       \LiberaMeCommon
-      \new Voice = "baritonesolo" \LiberaMeBaritoneSolo
-      \new Lyrics \lyricsto "baritonesolo" \LiberaMeLyricsBaritoneSolo
+      \new Voice = "sopranos" \LiberaMeSopranos
+      \new Lyrics \lyricsto "sopranos" \LiberaMeLyricsSopranos
     >>
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \LiberaMeGlobal
-        \LiberaMeCommon
-        \new Voice = "sopranos" \LiberaMeSopranos
-        \new Lyrics \lyricsto "sopranos" \LiberaMeLyricsSopranos
-      >>
-     \new Staff = "Altos" \with {
-        vocalName = \labelContraltos
-        shortVocalName = \labelContraltosShort
-      } <<
-        \LiberaMeCommon
-        \new Voice = "altos" \LiberaMeAltos
-        \new Lyrics \lyricsto "altos" \LiberaMeLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \LiberaMeCommon
-        \new Voice = "tenors" \LiberaMeTenors
-        \new Lyrics \lyricsto "tenors" \LiberaMeLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
-      } <<
-        \LiberaMeCommon
-        \new Voice = "basses" \LiberaMeBasses
-        \new Lyrics \lyricsto "basses" \LiberaMeLyricsBasses
-      >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelContraltos
+      shortVocalName = \labelContraltosShort
+    } <<
+      \LiberaMeCommon
+      \new Voice = "altos" \LiberaMeAltos
+      \new Lyrics \lyricsto "altos" \LiberaMeLyricsAltos
     >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \LiberaMeCommon
+      \new Voice = "tenors" \LiberaMeTenors
+      \new Lyrics \lyricsto "tenors" \LiberaMeLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBasses
+      shortVocalName = \labelBassesShort
+    } <<
+      \LiberaMeCommon
+      \new Voice = "basses" \LiberaMeBasses
+      \new Lyrics \lyricsto "basses" \LiberaMeLyricsBasses
+    >>
+  >>
+>>
+
+LiberaMePianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \LiberaMeCommon
+      \LiberaMePianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \LiberaMeCommon
+      \LiberaMePianoRedMS
+    >>
+  >>
+>>
+
+
+LiberaMeVocalScore = \score {
+  \LiberaMeVocals
+  \header {
+    piece = "VI. Libera me"
+    pieceIntroText = \LiberaMeTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+LiberaMePianoVocalScore = \score {
+  <<
+    \LiberaMeVocals
+    \LiberaMePianoReduction
   >>
   \header {
     piece = "VI. Libera me"

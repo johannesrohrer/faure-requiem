@@ -413,43 +413,194 @@ InParadisumLyricsTenors = \lyricmode {
 InParadisumLyricsBasses = \InParadisumLyricsTenors
 
 
-InParadisum = \score {
-  <<
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \InParadisumGlobal
-        \InParadisumCommon
-        \new Voice = "sopranos" \InParadisumSopranos
-        \new Lyrics \lyricsto "sopranos" \InParadisumLyricsSopranos
-      >>
-      \new Staff = "Altos" \with {
-        vocalName = \labelAltos
-        shortVocalName = \labelAltosShort
-      } <<
-        \InParadisumCommon
-        \new Voice = "altos" \InParadisumAltos
-        \new Lyrics \lyricsto "altos" \InParadisumLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \InParadisumCommon
-        \new Voice = "tenors" \InParadisumTenors
-        \new Lyrics \lyricsto "tenors" \InParadisumLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
-      } <<
-        \InParadisumCommon
-        \new Voice = "basses" \InParadisumBasses
-        \new Lyrics \lyricsto "basses" \InParadisumLyricsBasses
-      >>
+InParadisumPianoRedMD = \relative a' {
+  \clef "treble"
+
+  %% [1] p. 114
+  R2.*3
+
+  %% [1] p. 115
+  R2.*4
+
+  %%  [1] p. 116
+  R2.*3
+  %% A
+  R2.*1
+
+  %% [1] p. 117
+  R2.*4
+
+  %% [1] p. 118
+  R2.*3
+  %% B
+  R2.*1
+
+  %% [1] p. 119
+  R2.*4
+
+  %% [1] p. 120
+  R2.*3
+  %% C
+  R2.*1
+
+  %% [1] p. 121
+  R2.*4
+
+  %% [1] p. 122
+  R2.*4
+
+  %% [1] p. 123
+  %% D
+  R2.*4
+
+  %% [1] p. 124
+  R2.*4
+
+  %% [1] p. 125
+  R2.*1
+  %% E
+  R2.*3
+
+  %% [1] p. 126
+  R2.*4
+
+  %% [1] p. 127
+  %% F
+  R2.*4
+
+  %% [1] p. 128
+  R2.*6
+}
+
+
+InParadisumPianoRedMS = \relative d {
+  \clef "bass"
+
+  %% [1] p. 114
+  R2.*3
+
+  %% [1] p. 115
+  R2.*4
+
+  %%  [1] p. 116
+  R2.*3
+  %% A
+  R2.*1
+
+  %% [1] p. 117
+  R2.*4
+
+  %% [1] p. 118
+  R2.*3
+  %% B
+  R2.*1
+
+  %% [1] p. 119
+  R2.*4
+
+  %% [1] p. 120
+  R2.*3
+  %% C
+  R2.*1
+
+  %% [1] p. 121
+  R2.*4
+
+  %% [1] p. 122
+  R2.*4
+
+  %% [1] p. 123
+  %% D
+  R2.*4
+
+  %% [1] p. 124
+  R2.*4
+
+  %% [1] p. 125
+  R2.*1
+  %% E
+  R2.*3
+
+  %% [1] p. 126
+  R2.*4
+
+  %% [1] p. 127
+  %% F
+  R2.*4
+
+  %% [1] p. 128
+  R2.*6
+}
+
+
+InParadisumVocals = <<
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
+    } <<
+      \InParadisumGlobal
+      \InParadisumCommon
+      \new Voice = "sopranos" \InParadisumSopranos
+      \new Lyrics \lyricsto "sopranos" \InParadisumLyricsSopranos
     >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelAltos
+      shortVocalName = \labelAltosShort
+    } <<
+      \InParadisumCommon
+      \new Voice = "altos" \InParadisumAltos
+      \new Lyrics \lyricsto "altos" \InParadisumLyricsAltos
+    >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \InParadisumCommon
+      \new Voice = "tenors" \InParadisumTenors
+      \new Lyrics \lyricsto "tenors" \InParadisumLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBasses
+      shortVocalName = \labelBassesShort
+    } <<
+      \InParadisumCommon
+      \new Voice = "basses" \InParadisumBasses
+      \new Lyrics \lyricsto "basses" \InParadisumLyricsBasses
+    >>
+  >>
+>>
+
+InParadisumPianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \InParadisumCommon
+      \InParadisumPianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \InParadisumCommon
+      \InParadisumPianoRedMS
+    >>
+  >>
+>>
+
+
+InParadisumVocalScore = \score {
+  \InParadisumVocals
+  \header {
+    piece = "VII. In paradisum"
+    pieceIntroText = \InParadisumTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+InParadisumPianoVocalScore = \score {
+  <<
+    \InParadisumVocals
+    \InParadisumPianoReduction
   >>
   \header {
     piece = "VII. In paradisum"

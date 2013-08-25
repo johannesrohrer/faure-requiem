@@ -761,43 +761,258 @@ AgnusDeiLyricsBasses = \lyricmode {
   \AgnusDeiLyricsCommonC
 }
 
-AgnusDei = \score {
-  <<
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \AgnusDeiGlobal
-        \AgnusDeiCommon
-        \new Voice = "sopranos" \AgnusDeiSopranos
-        \new Lyrics \lyricsto "sopranos" \AgnusDeiLyricsSopranos
-      >>
-      \new Staff = "Altos" \with {
-        vocalName = \labelAltos
-        shortVocalName = \labelAltosShort
-      } <<
-        \AgnusDeiCommon
-        \new Voice = "altos" \AgnusDeiAltos
-        \new Lyrics \lyricsto "altos" \AgnusDeiLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \AgnusDeiCommon
-        \new Voice = "tenors" \AgnusDeiTenors
-        \new Lyrics \lyricsto "tenors" \AgnusDeiLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
-      } <<
-        \AgnusDeiCommon
-        \new Voice = "basses" \AgnusDeiBasses
-        \new Lyrics \lyricsto "basses" \AgnusDeiLyricsBasses
-      >>
+
+AgnusDeiPianoRedMD = \relative c' {
+  \clef "treble"
+
+  %% [1] p. 70
+  R2.*3
+
+  %% [1] p. 71
+  R2.*4
+
+  %% [1] p. 72
+  R2.*4
+
+  %% [1] p. 73
+  R2.*1
+  %% A
+  R2.*3
+
+  %% [1] p. 74
+  R2.*3
+  %% B
+  R2.*1
+
+  %% [1] p. 75
+  R2.*4
+
+  %% [1] p. 76
+  R2.*3
+  %% C
+  R2.*1
+
+  %% [1] p. 77
+  R2.*5
+
+  %% [1] p. 78
+  R2.*4
+
+  %% [1] p. 79
+  %% D
+  R2.*4
+
+  %% [1] p. 80
+  R2.*5
+
+  %% [1] p. 81
+  R2.*1
+  %% E
+  R2.*4
+
+  %% [1] p. 82
+  R2.*4
+
+  %% [1] p. 83
+  R2.*5
+
+  %% [1] p. 84
+  R2.*1
+  %% F
+  R2.*3
+
+  %% [1] p. 85
+  R2.*4
+
+  %% [1] p. 86
+  R2.*2
+  %% G
+  R2.*2
+
+  %% [1] p. 87
+  R2.*3
+
+  %% Molto largo, 4/4 time
+  R1*2
+
+  %% [1] p. 88
+  R1*4
+  %% H
+  R1*1
+
+  %% [1] p. 89
+  R1*5
+
+  %% [1] p. 90
+  R1*1
+
+  %% Tempo I, 3/4 time
+  R2.*3
+
+  %% [1] p. 91
+  R2.*4
+}
+
+AgnusDeiPianoRedMS = \relative f {
+  \clef "bass"
+
+  %% [1] p. 70
+  R2.*3
+
+  %% [1] p. 71
+  R2.*4
+
+  %% [1] p. 72
+  R2.*4
+
+  %% [1] p. 73
+  R2.*1
+  %% A
+  R2.*3
+
+  %% [1] p. 74
+  R2.*3
+  %% B
+  R2.*1
+
+  %% [1] p. 75
+  R2.*4
+
+  %% [1] p. 76
+  R2.*3
+  %% C
+  R2.*1
+
+  %% [1] p. 77
+  R2.*5
+
+  %% [1] p. 78
+  R2.*4
+
+  %% [1] p. 79
+  %% D
+  R2.*4
+
+  %% [1] p. 80
+  R2.*5
+
+  %% [1] p. 81
+  R2.*1
+  %% E
+  R2.*4
+
+  %% [1] p. 82
+  R2.*4
+
+  %% [1] p. 83
+  R2.*5
+
+  %% [1] p. 84
+  R2.*1
+  %% F
+  R2.*3
+
+  %% [1] p. 85
+  R2.*4
+
+  %% [1] p. 86
+  R2.*2
+  %% G
+  R2.*2
+
+  %% [1] p. 87
+  R2.*3
+
+  %% Molto largo, 4/4 time
+  R1*2
+
+  %% [1] p. 88
+  R1*4
+  %% H
+  R1*1
+
+  %% [1] p. 89
+  R1*5
+
+  %% [1] p. 90
+  R1*1
+
+  %% Tempo I, 3/4 time
+  R2.*3
+
+  %% [1] p. 91
+  R2.*4
+}
+
+
+AgnusDeiVocals = <<
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
+    } <<
+      \AgnusDeiGlobal
+      \AgnusDeiCommon
+      \new Voice = "sopranos" \AgnusDeiSopranos
+      \new Lyrics \lyricsto "sopranos" \AgnusDeiLyricsSopranos
     >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelAltos
+      shortVocalName = \labelAltosShort
+    } <<
+      \AgnusDeiCommon
+      \new Voice = "altos" \AgnusDeiAltos
+      \new Lyrics \lyricsto "altos" \AgnusDeiLyricsAltos
+    >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \AgnusDeiCommon
+      \new Voice = "tenors" \AgnusDeiTenors
+      \new Lyrics \lyricsto "tenors" \AgnusDeiLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBasses
+      shortVocalName = \labelBassesShort
+    } <<
+      \AgnusDeiCommon
+      \new Voice = "basses" \AgnusDeiBasses
+      \new Lyrics \lyricsto "basses" \AgnusDeiLyricsBasses
+    >>
+  >>
+>>
+
+AgnusDeiPianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \AgnusDeiCommon
+      \AgnusDeiPianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \AgnusDeiCommon
+      \AgnusDeiPianoRedMS
+    >>
+  >>
+>>
+
+
+AgnusDeiVocalScore = \score {
+  \AgnusDeiVocals
+  \header {
+    piece = "V. Agnus Dei"
+    pieceIntroText = \AgnusDeiTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+AgnusDeiPianoVocalScore = \score {
+  <<
+    \AgnusDeiVocals
+    \AgnusDeiPianoReduction
   >>
   \header {
     piece = "V. Agnus Dei"

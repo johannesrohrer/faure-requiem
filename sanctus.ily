@@ -397,44 +397,190 @@ SanctusLyricsBasses = \lyricmode {
 SanctusLyricsTenors = \SanctusLyricsBasses
 
 
+SanctusPianoRedMD = \relative g {
+  \clef "treble"
 
-Sanctus = \score {
-  <<
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \SanctusGlobal
-        \SanctusCommon
-        \new Voice = "sopranos" \SanctusSopranos
-        \new Lyrics \lyricsto "sopranos" \SanctusLyricsSopranos
-      >>
-      \new Staff = "Altos" \with {
-        vocalName = \labelContraltos
-        shortVocalName = \labelContraltosShort
-      } <<
-        \SanctusCommon
-        \new Voice = "altos" \SanctusAltos
-        \new Lyrics \lyricsto "altos" \SanctusLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \SanctusCommon
-        \new Voice = "tenors" \SanctusTenors
-        \new Lyrics \lyricsto "tenors" \SanctusLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBassesI
-        shortVocalName = \labelBassesShortI
-      } <<
-        \SanctusCommon
-        \new Voice = "basses" \SanctusBasses
-        \new Lyrics \lyricsto "basses" \SanctusLyricsBasses
-      >>
+  %% [1] p. 45
+  R2.*2
+
+  %% [1] p. 46
+  R2.*4
+
+  %% [1] p. 47
+  R2.*4 |
+
+  %% [1] p. 48
+  %% A
+  R2.*4
+
+  %% [1] p. 49
+  R2.*4 |
+
+  %% [1] p. 50
+  %% B
+  R2.*4
+
+  %% [1] p. 51
+  R2.*4 |
+
+  %% [1] p. 52
+  %% C
+  R2.*4
+
+  %% [1] p. 53
+  R2.*4 |
+
+  %% [1] p. 54
+  %% D
+  R2.*4
+
+  %% [1] p. 55
+  R2.*3
+  %% F (Source skips E)
+  R2.*1
+
+  %% [1] p. 56
+  R2.*4
+
+  %% [1] p. 57
+  R2.*4
+
+  %% [1] p. 58
+  R2.*4
+
+  %% [1] p. 59
+  R2.*4
+
+  %% [1] p. 60
+  R2.*4
+}
+
+SanctusPianoRedMS = \relative g {
+  \clef "bass"
+
+  %% [1] p. 45
+  R2.*2
+
+  %% [1] p. 46
+  R2.*4
+
+  %% [1] p. 47
+  R2.*4 |
+
+  %% [1] p. 48
+  %% A
+  R2.*4
+
+  %% [1] p. 49
+  R2.*4 |
+
+  %% [1] p. 50
+  %% B
+  R2.*4
+
+  %% [1] p. 51
+  R2.*4 |
+
+  %% [1] p. 52
+  %% C
+  R2.*4
+
+  %% [1] p. 53
+  R2.*4 |
+
+  %% [1] p. 54
+  %% D
+  R2.*4
+
+  %% [1] p. 55
+  R2.*3
+  %% F (Source skips E)
+  R2.*1
+
+  %% [1] p. 56
+  R2.*4
+
+  %% [1] p. 57
+  R2.*4
+
+  %% [1] p. 58
+  R2.*4
+
+  %% [1] p. 59
+  R2.*4
+
+  %% [1] p. 60
+  R2.*4
+}
+
+SanctusVocals = <<
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
+    } <<
+      \SanctusGlobal
+      \SanctusCommon
+      \new Voice = "sopranos" \SanctusSopranos
+      \new Lyrics \lyricsto "sopranos" \SanctusLyricsSopranos
     >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelContraltos
+      shortVocalName = \labelContraltosShort
+    } <<
+      \SanctusCommon
+      \new Voice = "altos" \SanctusAltos
+      \new Lyrics \lyricsto "altos" \SanctusLyricsAltos
+    >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \SanctusCommon
+      \new Voice = "tenors" \SanctusTenors
+      \new Lyrics \lyricsto "tenors" \SanctusLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBassesI
+      shortVocalName = \labelBassesShortI
+    } <<
+      \SanctusCommon
+      \new Voice = "basses" \SanctusBasses
+      \new Lyrics \lyricsto "basses" \SanctusLyricsBasses
+    >>
+  >>
+>>
+
+SanctusPianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \SanctusCommon
+      \SanctusPianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \SanctusCommon
+      \SanctusPianoRedMS
+    >>
+  >>
+>>
+
+
+SanctusVocalScore = \score {
+  \SanctusVocals
+  \header {
+    piece = "III. Sanctus"
+    pieceIntroText = \SanctusTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+SanctusPianoVocalScore = \score {
+  <<
+    \SanctusVocals
+    \SanctusPianoReduction
   >>
   \header {
     piece = "III. Sanctus"

@@ -194,17 +194,127 @@ PieJesusLyricsSopranoSolo = \lyricmode {
 }
 
 
-PieJesus = \score {
-  <<
-    \new Staff = "SopranoSolo" \with {
-      vocalName = \labelSopranos
-      shortVocalName = \labelSopranosShort
-    } <<
-      \PieJesusGlobal
+PieJesusPianoRedMD = \relative f' {
+  \clef "treble"
+
+  %% [1] p. 61
+  R1*4
+
+  %% [1] p. 62
+  R1*4
+
+  %% [1] p. 63
+  R1*2
+  %% A
+  R1*3
+
+  %% [1] p. 64
+  R1*4
+
+  %% [1] p. 65
+  %% B
+  R1*5
+
+  %% [1] p. 66
+  R1*2
+  %% C
+  R1*2
+
+  %% [1] p. 67
+  R1*2
+  %% D
+  R1*2
+
+  %% [1] p. 68
+  R1*4
+
+  %% [1] p. 69
+  %% E
+  R1*4
+}
+
+PieJesusPianoRedMS = \relative bes' {
+  \clef "bass"
+
+  %% [1] p. 61
+  R1*4
+
+  %% [1] p. 62
+  R1*4
+
+  %% [1] p. 63
+  R1*2
+  %% A
+  R1*3
+
+  %% [1] p. 64
+  R1*4
+
+  %% [1] p. 65
+  %% B
+  R1*5
+
+  %% [1] p. 66
+  R1*2
+  %% C
+  R1*2
+
+  %% [1] p. 67
+  R1*2
+  %% D
+  R1*2
+
+  %% [1] p. 68
+  R1*4
+
+  %% [1] p. 69
+  %% E
+  R1*4
+}
+
+
+PieJesusVocals = <<
+  \new Staff = "SopranoSolo" \with {
+    vocalName = \labelSopranos
+    shortVocalName = \labelSopranosShort
+  } <<
+    \PieJesusGlobal
+    \PieJesusCommon
+    \new Voice = "sopranosolo" \PieJesusSopranoSolo
+    \new Lyrics \lyricsto "sopranosolo" \PieJesusLyricsSopranoSolo
+  >>
+>>
+
+PieJesusPianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
       \PieJesusCommon
-      \new Voice = "sopranosolo" \PieJesusSopranoSolo
-      \new Lyrics \lyricsto "sopranosolo" \PieJesusLyricsSopranoSolo
+      \PieJesusPianoRedMD
     >>
+    \new Staff = "m.s." <<
+      \PieJesusCommon
+      \PieJesusPianoRedMS
+    >>
+  >>
+>>
+
+
+PieJesusVocalScore = \score {
+  \PieJesusVocals
+  \header {
+    piece = "IV. Pie Jesus"
+    pieceIntroText = \PieJesuTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+PieJesusPianoVocalScore = \score {
+  <<
+    \PieJesusVocals
+    \PieJesusPianoReduction
   >>
   \header {
     piece = "IV. Pie Jesus"

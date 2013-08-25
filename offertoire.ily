@@ -622,52 +622,276 @@ OffertoireLyricsBasses = \lyricmode {
 }
 
 
-Offertoire = \score {
-  <<
-    \new Staff = "BaritoneSolo" \with {
-      vocalName = \labelBaritoneSolo
-      shortVocalName = \labelBaritoneSoloShort
+OffertoirePianoRedMD = \relative g {
+  \clef "treble"
+
+  %% O domine, [1] p. 23
+  R1*4
+
+  %% [1] p. 24
+  R1*4
+
+  %% [1] p. 25
+  R1*1 |
+  %% A
+  R1*3
+
+  %% [1] p. 26
+  R1*3 |
+  %% B
+  R1*1
+
+  %% [1] p. 27
+  R1*4
+
+  %% [1] p. 28
+  R1*1 |
+  %% C
+  R1*3
+
+  %% [1] p. 29
+  R1*4 |
+
+  %% [1] p. 30
+  %% D
+  R1*4
+
+  %% [1] p. 31
+  R1*3
+
+  %% Hostias et preces
+  R2.*1
+
+  %% [1] p. 32
+  R2.*4
+
+  %% [1] p. 33
+  R2.*3 |
+  %% E
+  R2.*1
+
+  %% [1] p. 34
+  R2.*4
+
+  %% [1] p. 35
+  R2.*4
+
+  %% [1] p. 36
+  R2.*1 |
+  %% F
+  R2.*5
+
+  %% [1] p. 37
+  R2.*4
+
+  %% [1] p. 38
+  R2.*1 |
+  %% G
+  R2.*4
+
+  %% [1] p. 39
+  R2.*4 |
+  %% H
+  R2.*1
+
+  %% [1] p. 40
+  R2.*5
+
+
+  %% O domine (Repr.) [1] p. 41
+  R1*4
+
+  %% [1] p. 42
+  R1*1
+  %% J
+  R1*3
+
+  %% [1] p. 43
+  R1*3
+  %% K
+  R1*1
+
+  %% [1] p. 44
+  R1*1
+
+  %% key change
+  R1*5
+}
+
+OffertoirePianoRedMS = \relative d {
+  \clef "bass"
+
+  %% O domine, [1] p. 23
+  R1*4
+
+  %% [1] p. 24
+  R1*4
+
+  %% [1] p. 25
+  R1*1 |
+  %% A
+  R1*3
+
+  %% [1] p. 26
+  R1*3 |
+  %% B
+  R1*1
+
+  %% [1] p. 27
+  R1*4
+
+  %% [1] p. 28
+  R1*1 |
+  %% C
+  R1*3
+
+  %% [1] p. 29
+  R1*4 |
+
+  %% [1] p. 30
+  %% D
+  R1*4
+
+  %% [1] p. 31
+  R1*3
+
+  %% Hostias et preces
+  R2.*1
+
+  %% [1] p. 32
+  R2.*4
+
+  %% [1] p. 33
+  R2.*3 |
+  %% E
+  R2.*1
+
+  %% [1] p. 34
+  R2.*4
+
+  %% [1] p. 35
+  R2.*4
+
+  %% [1] p. 36
+  R2.*1 |
+  %% F
+  R2.*5
+
+  %% [1] p. 37
+  R2.*4
+
+  %% [1] p. 38
+  R2.*1 |
+  %% G
+  R2.*4
+
+  %% [1] p. 39
+  R2.*4 |
+  %% H
+  R2.*1
+
+  %% [1] p. 40
+  R2.*5
+
+
+  %% O domine (Repr.) [1] p. 41
+  R1*4
+
+  %% [1] p. 42
+  R1*1
+  %% J
+  R1*3
+
+  %% [1] p. 43
+  R1*3
+  %% K
+  R1*1
+
+  %% [1] p. 44
+  R1*1
+
+  %% key change
+  R1*5
+}
+
+
+OffertoireVocals = <<
+  \new Staff = "BaritoneSolo" \with {
+    vocalName = \labelBaritoneSolo
+    shortVocalName = \labelBaritoneSoloShort
+  } <<
+    \OffertoireGlobal
+    \OffertoireCommon
+    \new Voice = "baritonesolo" \OffertoireBaritoneSolo
+    \new Lyrics \lyricsto "baritonesolo" \OffertoireLyricsBaritoneSolo
+  >>
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
     } <<
       \OffertoireGlobal
       \OffertoireCommon
-      \new Voice = "baritonesolo" \OffertoireBaritoneSolo
-      \new Lyrics \lyricsto "baritonesolo" \OffertoireLyricsBaritoneSolo
+      \new Voice = "sopranos" \OffertoireSopranos
+      \new Lyrics \lyricsto "sopranos" \OffertoireLyricsSopranos
     >>
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \OffertoireGlobal
-        \OffertoireCommon
-        \new Voice = "sopranos" \OffertoireSopranos
-        \new Lyrics \lyricsto "sopranos" \OffertoireLyricsSopranos
-      >>
-     \new Staff = "Altos" \with {
-        vocalName = \labelContraltos
-        shortVocalName = \labelContraltosShort
-      } <<
-        \OffertoireCommon
-        \new Voice = "altos" \OffertoireAltos
-        \new Lyrics \lyricsto "altos" \OffertoireLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \OffertoireCommon
-        \new Voice = "tenors" \OffertoireTenors
-        \new Lyrics \lyricsto "tenors" \OffertoireLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
-      } <<
-        \OffertoireCommon
-        \new Voice = "basses" \OffertoireBasses
-        \new Lyrics \lyricsto "basses" \OffertoireLyricsBasses
-      >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelContraltos
+      shortVocalName = \labelContraltosShort
+    } <<
+      \OffertoireCommon
+      \new Voice = "altos" \OffertoireAltos
+      \new Lyrics \lyricsto "altos" \OffertoireLyricsAltos
     >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \OffertoireCommon
+      \new Voice = "tenors" \OffertoireTenors
+      \new Lyrics \lyricsto "tenors" \OffertoireLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBasses
+      shortVocalName = \labelBassesShort
+    } <<
+      \OffertoireCommon
+      \new Voice = "basses" \OffertoireBasses
+      \new Lyrics \lyricsto "basses" \OffertoireLyricsBasses
+    >>
+  >>
+>>
+
+OffertoirePianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \OffertoireCommon
+      \OffertoirePianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \OffertoireCommon
+      \OffertoirePianoRedMS
+    >>
+  >>
+>>
+
+
+OffertoireVocalScore = \score {
+  \OffertoireVocals
+  \header {
+    piece = "II. Offertoire"
+    pieceIntroText = \OffertoireTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+OffertoirePianoVocalScore = \score {
+  <<
+    \OffertoireVocals
+    \OffertoirePianoReduction
   >>
   \header {
     piece = "II. Offertoire"

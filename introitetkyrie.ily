@@ -793,43 +793,255 @@ IntroitEtKyrieLyricsBasses = \lyricmode {
 }
 
 
-IntroitEtKyrie = \score {
-  <<
-    \new ChoirStaff = "Choir" <<
-      \new Staff = "Sopranos" \with {
-        vocalName = \labelSopranos
-        shortVocalName = \labelSopranosShort
-      } <<
-        \IntroitEtKyrieGlobal
-        \IntroitEtKyrieCommon
-        \new Voice = "sopranos" \IntroitEtKyrieSopranos
-        \new Lyrics \lyricsto "sopranos" \IntroitEtKyrieLyricsSopranos
-      >>
-      \new Staff = "Altos" \with {
-        vocalName = \labelAltos
-        shortVocalName = \labelAltosShort
-      } <<
-        \IntroitEtKyrieCommon
-        \new Voice = "altos" \IntroitEtKyrieAltos
-        \new Lyrics \lyricsto "altos" \IntroitEtKyrieLyricsAltos
-      >>
-      \new Staff = "Tenors" \with {
-        vocalName = \labelTenors
-        shortVocalName = \labelTenorsShort
-      } <<
-        \IntroitEtKyrieCommon
-        \new Voice = "tenors" \IntroitEtKyrieTenors
-        \new Lyrics \lyricsto "tenors" \IntroitEtKyrieLyricsTenors
-      >>
-      \new Staff = "Basses" \with {
-        vocalName = \labelBasses
-        shortVocalName = \labelBassesShort
-      } <<
-        \IntroitEtKyrieCommon
-        \new Voice = "basses" \IntroitEtKyrieBasses
-        \new Lyrics \lyricsto "basses" \IntroitEtKyrieLyricsBasses
-      >>
+IntroitEtKyriePianoRedMD = \relative d' {
+  \clef "treble"
+
+  %% [1] p. 1
+  d1
+  R1*3
+
+  %% [1] p. 2
+  R1*2
+  %% A
+  R1*2
+
+  %% [1] p. 3
+  R1*4
+
+  %% [1] p. 4
+  %% B
+  R1*5
+
+
+  %% [1] p. 5
+  R1*4
+
+  %% [1] p. 6
+  R1*2
+  %% C
+  R1*2
+
+  %% [1] p. 7
+  R1*4
+
+  %% [1] p. 8
+  R1*3
+  %% D
+  R1*1
+
+  %% [1] p. 9
+  R1*4
+
+  %% [1] p. 10
+  R1*2
+  %% E
+  R1*2
+
+  %% [1] p. 11
+  R1*4
+
+  %% [1] p. 12
+  R1*4
+
+  %% [1] p. 13
+  %% F
+  R1*4
+
+  %% [1] p. 14
+  R1*4
+
+  %% [1] p. 15
+  R1*3
+  %% G
+  R1*1
+
+  %% [1] p. 16
+  R1*4
+
+  %% [1] p. 17
+  R1*1
+  %% H
+  R1*3
+
+  %% [1] p. 18
+  R1*4
+
+  %% [1] p. 19
+  R1*1
+  %% J
+  R1*3
+
+  %% [1] p. 20
+  R1*5
+
+  %% [1] p. 21
+  R1*2
+  %% K
+  R1*2
+
+  %% [1] p. 22
+  R1*5
+}
+
+IntroitEtKyriePianoRedMS = \relative d, {
+  \clef "bass"
+
+  %% [1] p. 1
+  <d d'>1
+  R1*3
+
+  %% [1] p. 2
+  R1*2
+  %% A
+  R1*2
+
+  %% [1] p. 3
+  R1*4
+
+  %% [1] p. 4
+  %% B
+  R1*5
+
+
+  %% [1] p. 5
+  R1*4
+
+  %% [1] p. 6
+  R1*2
+  %% C
+  R1*2
+
+  %% [1] p. 7
+  R1*4
+
+  %% [1] p. 8
+  R1*3
+  %% D
+  R1*1
+
+  %% [1] p. 9
+  R1*4
+
+  %% [1] p. 10
+  R1*2
+  %% E
+  R1*2
+
+  %% [1] p. 11
+  R1*4
+
+  %% [1] p. 12
+  R1*4
+
+  %% [1] p. 13
+  %% F
+  R1*4
+
+  %% [1] p. 14
+  R1*4
+
+  %% [1] p. 15
+  R1*3
+  %% G
+  R1*1
+
+  %% [1] p. 16
+  R1*4
+
+  %% [1] p. 17
+  R1*1
+  %% H
+  R1*3
+
+  %% [1] p. 18
+  R1*4
+
+  %% [1] p. 19
+  R1*1
+  %% J
+  R1*3
+
+  %% [1] p. 20
+  R1*5
+
+  %% [1] p. 21
+  R1*2
+  %% K
+  R1*2
+
+  %% [1] p. 22
+  R1*5
+}
+
+
+IntroitEtKyrieVocals = <<
+  \new ChoirStaff = "Choir" <<
+    \new Staff = "Sopranos" \with {
+      vocalName = \labelSopranos
+      shortVocalName = \labelSopranosShort
+    } <<
+      \IntroitEtKyrieGlobal
+      \IntroitEtKyrieCommon
+      \new Voice = "sopranos" \IntroitEtKyrieSopranos
+      \new Lyrics \lyricsto "sopranos" \IntroitEtKyrieLyricsSopranos
     >>
+    \new Staff = "Altos" \with {
+      vocalName = \labelAltos
+      shortVocalName = \labelAltosShort
+    } <<
+      \IntroitEtKyrieCommon
+      \new Voice = "altos" \IntroitEtKyrieAltos
+      \new Lyrics \lyricsto "altos" \IntroitEtKyrieLyricsAltos
+    >>
+    \new Staff = "Tenors" \with {
+      vocalName = \labelTenors
+      shortVocalName = \labelTenorsShort
+    } <<
+      \IntroitEtKyrieCommon
+      \new Voice = "tenors" \IntroitEtKyrieTenors
+      \new Lyrics \lyricsto "tenors" \IntroitEtKyrieLyricsTenors
+    >>
+    \new Staff = "Basses" \with {
+      vocalName = \labelBasses
+      shortVocalName = \labelBassesShort
+    } <<
+      \IntroitEtKyrieCommon
+      \new Voice = "basses" \IntroitEtKyrieBasses
+      \new Lyrics \lyricsto "basses" \IntroitEtKyrieLyricsBasses
+    >>
+  >>
+>>
+
+IntroitEtKyriePianoReduction =  <<
+  \new PianoStaff = "Piano" \with {
+    instrumentName = \labelPiano
+  } <<
+    \new Staff = "m.d." <<
+      \IntroitEtKyrieCommon
+      \IntroitEtKyriePianoRedMD
+    >>
+    \new Staff = "m.s." <<
+      \IntroitEtKyrieCommon
+      \IntroitEtKyriePianoRedMS
+    >>
+  >>
+>>
+
+
+IntroitEtKyrieVocalScore = \score {
+  \IntroitEtKyrieVocals
+  \header {
+    piece = "I. Introït et Kyrie"
+    pieceIntroText = \IntroitEtKyrieTextCombined
+  }
+  \layout { }
+  \midi { }
+}
+
+IntroitEtKyriePianoVocalScore = \score {
+  <<
+    \IntroitEtKyrieVocals
+    \IntroitEtKyriePianoReduction
   >>
   \header {
     piece = "I. Introït et Kyrie"
