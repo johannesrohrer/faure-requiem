@@ -138,11 +138,8 @@ SanctusSopranos = \relative bes' {
   bes2.
   bes2.\)
 
-  %% [1] p. 53 "Gloria / Gloria tua"
-  bes4.^\sempredolce\( bes8 es4
-  es4 d c\)
-  bes2.
-  bes2. |
+  %% [1] p. 53 (T+BI: "Gloria / Gloria tua")
+  R2.*4 |
 
   %% [1] p. 54 "Hosanna in excelsis"
   %% D
@@ -238,7 +235,7 @@ SanctusTenorsA = \relative bes {
   R2.*4
 
   %% [1] p. 53 "Gloria / Gloria tua"
-  bes4.\( bes8 es4
+  bes4.^\sempredolce\( bes8 es4
   es4 d c\)
   bes2.
   bes2. |
@@ -354,7 +351,6 @@ SanctusLyricsSopranos = \lyricmode {
 
   %% C
   Ple -- ni sunt cœ -- li et ter -- ra
-  glo -- ri -- a, glo -- ri -- a tu -- a.
 
   %% D
   Ho -- san -- na in ex -- cel -- sis,
