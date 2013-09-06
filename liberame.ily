@@ -517,7 +517,7 @@ LiberaMeTenors = \relative e' {
   es2. d
 
   %% [1] p. 101 "et miseriæ / Dies illa / Dies magna"
-  d2 d4 << { \voiceOne es2 e4 }
+  d2 d4 << { \voiceOne es2 es4 }
            \context Voice = "tenorsII" { \voiceTwo c2 c4 } >> \oneVoice
   d2.~ d2 r4 |
   %% E
