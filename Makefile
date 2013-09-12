@@ -13,3 +13,7 @@
 all:
 	lilypond vocal-score.ly
 	lilypond piano-vocal-score.ly
+
+final:
+	lilypond -dno-point-and-click vocal-score.ly
+	lilypond -dno-point-and-click piano-vocal-score.ly
