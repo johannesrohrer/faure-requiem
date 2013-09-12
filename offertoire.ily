@@ -399,7 +399,7 @@ OffertoireTenors =  \relative d' {
   %% D
   ais4 r r2
   r2 r8 c^\tag #'aix \p c( b)
-  a4 a r2
+  a!4 a r2
   R1*4
 
   %% R2.*8 |
