@@ -396,7 +396,7 @@ AgnusDeiTenors = \relative c' {
   f4(\! e)\breathe d4\(
   d4^\> c a\!
   c4( e) d
-  e2.\)
+  c2.\)
 
   %% [1] p. 80-81m1 "sempiternam requiem"
   b2\( b4
