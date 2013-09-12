@@ -194,7 +194,7 @@ AgnusDeiSopranos = \relative g' {
   as2 as4\)         % [1]: end of phrasing slur unclear
 
   %% [1] p. 84 "pius es / cum sanctis tuis"
-  a4( f) g |
+  as4( f) g |
   %% F
   as2 bes4
   c2^\crescmolto c4
